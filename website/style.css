@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+p {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+h1 {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding:auto;
+    text-align: center;
+
+}
+
+
+
+.weeklyReportsHeader{
+    width:750px;
+    margin:auto;
+    text-align: center;
+    color: #93E9BE;
+}
+.weeklyReports {
+    width:300px;
+    margin:auto;
+    text-align: center;
+    color:#01796F;
+}
+
+.aboutUs{
+    h1{
+        color: #93E9BE;
+    }
+    width:400px;
+    margin:auto;
+    text-align: center;
+}
