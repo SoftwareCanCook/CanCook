@@ -1,0 +1,19 @@
+meta {
+  name: Get user by pantry ID
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/users/pantry/:pantryId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  pantryId: 
+}
+
+settings {
+  encodeUrl: true
+}

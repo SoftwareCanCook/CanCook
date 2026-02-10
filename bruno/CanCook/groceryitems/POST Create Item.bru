@@ -1,0 +1,25 @@
+meta {
+  name: POST Create Item
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/api/grocery-items
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "storeId": 1,
+    "name": "Tomato",
+    "category": "Vegetables",
+    "quantity": 100,
+    "stock": 50
+  }
+}
+
+settings {
+  encodeUrl: true
+}

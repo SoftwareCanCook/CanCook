@@ -1,0 +1,28 @@
+meta {
+  name: PUT Update Ingredient
+  type: http
+  seq: 10
+}
+
+put {
+  url: {{BASE_URL}}/api/recipe-ingredients/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "recipeId": 1,
+    "itemId": 1,
+    "quantityNeeded": 5,
+    "measurementUnit": "cups"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

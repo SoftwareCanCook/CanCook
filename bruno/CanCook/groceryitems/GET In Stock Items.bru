@@ -1,0 +1,19 @@
+meta {
+  name: GET In Stock Items
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/api/grocery-items/in-stock?minStock=10
+  body: none
+  auth: inherit
+}
+
+params:query {
+  minStock: 10
+}
+
+settings {
+  encodeUrl: true
+}

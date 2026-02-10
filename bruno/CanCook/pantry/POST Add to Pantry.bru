@@ -1,0 +1,23 @@
+meta {
+  name: POST Add to Pantry
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/api/pantry
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": 1,
+    "itemId": 1,
+    "quantity": 5
+  }
+}
+
+settings {
+  encodeUrl: true
+}

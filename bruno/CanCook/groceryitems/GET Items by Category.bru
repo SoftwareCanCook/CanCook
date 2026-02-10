@@ -1,0 +1,19 @@
+meta {
+  name: GET Items by Category
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/api/grocery-items/category/:category
+  body: none
+  auth: inherit
+}
+
+params:path {
+  category: Vegetables
+}
+
+settings {
+  encodeUrl: true
+}

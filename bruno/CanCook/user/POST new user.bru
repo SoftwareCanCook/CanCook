@@ -1,0 +1,27 @@
+meta {
+  name: POST new user
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/api/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "johndoe",
+    "password": "pass123",
+    "loginAttempts": 0,
+    "status": 1,
+    "pantryId": null,
+    "role": "user"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

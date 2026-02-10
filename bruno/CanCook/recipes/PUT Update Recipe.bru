@@ -1,0 +1,29 @@
+meta {
+  name: PUT Update Recipe
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{BASE_URL}}/api/recipes/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "name": "Classic Spaghetti Carbonara",
+    "imageUrl": "https://example.com/carbonara-updated.jpg",
+    "isPublic": true,
+    "instructionsAndTimers": "Updated instructions...",
+    "rating": 4.8
+  }
+}
+
+settings {
+  encodeUrl: true
+}

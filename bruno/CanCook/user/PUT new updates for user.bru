@@ -1,0 +1,29 @@
+meta {
+  name: PUT new updates for user
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{BASE_URL}}/api/users/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "username": "newuser",
+    "password": "newpass123",
+    "loginAttempts": 0,
+    "status": 1,
+    "role": "admin"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

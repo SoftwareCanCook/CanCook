@@ -1,0 +1,20 @@
+meta {
+  name: GET User-Item Combo
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/pantry/user/:userId/item/:itemId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 1
+  itemId: 1
+}
+
+settings {
+  encodeUrl: true
+}

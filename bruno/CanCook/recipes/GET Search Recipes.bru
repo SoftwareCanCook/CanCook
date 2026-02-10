@@ -1,0 +1,19 @@
+meta {
+  name: GET Search Recipes
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/recipes/search?name=pasta
+  body: none
+  auth: inherit
+}
+
+params:query {
+  name: pasta
+}
+
+settings {
+  encodeUrl: true
+}

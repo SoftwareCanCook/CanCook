@@ -1,0 +1,26 @@
+meta {
+  name: POST Create Recipe
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/api/recipes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": 1,
+    "name": "Spaghetti Carbonara",
+    "imageUrl": "https://example.com/carbonara.jpg",
+    "isPublic": true,
+    "instructionsAndTimers": "1. Boil pasta for 10 minutes. 2. Cook bacon until crispy. 3. Mix eggs and cheese. 4. Combine all ingredients.",
+    "rating": 4.5
+  }
+}
+
+settings {
+  encodeUrl: true
+}

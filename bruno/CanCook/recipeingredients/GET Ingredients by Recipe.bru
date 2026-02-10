@@ -1,0 +1,19 @@
+meta {
+  name: GET Ingredients by Recipe
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/api/recipe-ingredients/recipe/:recipeId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  recipeId: 1
+}
+
+settings {
+  encodeUrl: true
+}

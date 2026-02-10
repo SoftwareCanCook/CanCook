@@ -1,0 +1,20 @@
+meta {
+  name: GET user by username
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/api/users/username/{username}?username=johndoe
+  body: none
+  auth: inherit
+}
+
+params:query {
+  username: johndoe
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

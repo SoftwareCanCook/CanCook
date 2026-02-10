@@ -1,0 +1,32 @@
+meta {
+  name: POST Add Multiple Ingredients
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/api/recipe-ingredients/bulk
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "recipeId": 1,
+      "itemId": 1,
+      "quantityNeeded": 3,
+      "measurementUnit": "pieces"
+    },
+    {
+      "recipeId": 1,
+      "itemId": 2,
+      "quantityNeeded": 200,
+      "measurementUnit": "grams"
+    }
+  ]
+}
+
+settings {
+  encodeUrl: true
+}

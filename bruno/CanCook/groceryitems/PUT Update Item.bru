@@ -1,0 +1,28 @@
+meta {
+  name: PUT Update Item
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{BASE_URL}}/api/grocery-items/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "name": "Roma Tomato",
+    "category": "Vegetables",
+    "quantity": 150,
+    "stock": 75
+  }
+}
+
+settings {
+  encodeUrl: true
+}

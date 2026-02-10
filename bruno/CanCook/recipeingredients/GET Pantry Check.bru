@@ -1,0 +1,23 @@
+meta {
+  name: GET Pantry Check
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/recipe-ingredients/recipe/:recipeId/pantry-check?userId=1
+  body: none
+  auth: inherit
+}
+
+params:path {
+  recipeId: 1
+}
+
+params:query {
+  userId: 1
+}
+
+settings {
+  encodeUrl: true
+}

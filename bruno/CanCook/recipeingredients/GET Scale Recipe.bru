@@ -1,0 +1,23 @@
+meta {
+  name: GET Scale Recipe
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/api/recipe-ingredients/recipe/:recipeId/scale?scaleFactor=2.0
+  body: none
+  auth: inherit
+}
+
+params:path {
+  recipeId: 1
+}
+
+params:query {
+  scaleFactor: 2.0
+}
+
+settings {
+  encodeUrl: true
+}

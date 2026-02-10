@@ -1,0 +1,19 @@
+meta {
+  name: GET Recipes by Min Rating
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/api/recipes/rating/:minRating
+  body: none
+  auth: inherit
+}
+
+params:path {
+  minRating: 4.0
+}
+
+settings {
+  encodeUrl: true
+}

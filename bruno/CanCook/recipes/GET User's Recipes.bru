@@ -1,0 +1,19 @@
+meta {
+  name: GET User's Recipes
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/api/recipes/user/:userId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 1
+}
+
+settings {
+  encodeUrl: true
+}

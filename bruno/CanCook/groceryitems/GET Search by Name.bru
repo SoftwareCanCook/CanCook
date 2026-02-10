@@ -1,0 +1,19 @@
+meta {
+  name: GET Search by Name
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/grocery-items/search?name=tomato
+  body: none
+  auth: inherit
+}
+
+params:query {
+  name: tomato
+}
+
+settings {
+  encodeUrl: true
+}

@@ -36,36 +36,36 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
 	testCompileOnly 'org.projectlombok:lombok:1.18.38'
-	
+
 }
 
 spotless {
-    format 'misc', {
-        target '*.gradle', '.gitattributes', '.gitignore'
-        trimTrailingWhitespace()
-        leadingSpacesToTabs()
-        endWithNewline()
-    }
-    java {
-        importOrder()
-        removeUnusedImports()
-        forbidWildcardImports()
-        cleanthat()
-        palantirJavaFormat('2.74.0').style("GOOGLE")
-        formatAnnotations()
-    }
-    json {
-        target 'src/**/*.json'
-        jackson()
-            .feature('INDENT_OUTPUT', true)
-            .feature('ORDER_MAP_ENTRIES_BY_KEYS', true)
-    }
-    yaml {
-        target 'src/**/*.yaml'
-        jackson()
-            .feature('INDENT_OUTPUT', true)
-            .feature('ORDER_MAP_ENTRIES_BY_KEYS', true)
-    }
+	format 'misc', {
+		target '*.gradle', '.gitattributes', '.gitignore'
+		trimTrailingWhitespace()
+		leadingSpacesToTabs()
+		endWithNewline()
+	}
+	java {
+		importOrder()
+		removeUnusedImports()
+		forbidWildcardImports()
+		cleanthat()
+		palantirJavaFormat('2.74.0').style("GOOGLE")
+		formatAnnotations()
+	}
+	json {
+		target 'src/**/*.json'
+		jackson()
+			.feature('INDENT_OUTPUT', true)
+			.feature('ORDER_MAP_ENTRIES_BY_KEYS', true)
+	}
+	yaml {
+		target 'src/**/*.yaml'
+		jackson()
+			.feature('INDENT_OUTPUT', true)
+			.feature('ORDER_MAP_ENTRIES_BY_KEYS', true)
+	}
 }
 
 tasks.named('test') {

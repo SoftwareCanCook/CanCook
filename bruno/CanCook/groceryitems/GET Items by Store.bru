@@ -1,0 +1,19 @@
+meta {
+  name: GET Items by Store
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/api/grocery-items/store/:storeId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  storeId: 1
+}
+
+settings {
+  encodeUrl: true
+}
