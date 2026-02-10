@@ -7,11 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipeIngredientsDto {
+public class IngredientAvailabilityDto {
 
-  private Integer id;
-  private Integer recipeId;
   private Integer itemId;
+  private String itemName;
   private Integer quantityNeeded;
   private String measurementUnit;
+  private Integer quantityAvailable;
+  private boolean isAvailable;
+  private Integer quantityMissing;
 }

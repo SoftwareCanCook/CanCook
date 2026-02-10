@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipeIngredientsDto {
+public class ScaledIngredientDto {
 
-  private Integer id;
-  private Integer recipeId;
   private Integer itemId;
-  private Integer quantityNeeded;
+  private String itemName;
+  private Integer originalQuantity;
+  private Double scaledQuantity;
   private String measurementUnit;
 }

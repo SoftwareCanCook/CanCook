@@ -1,5 +1,6 @@
 package com.cook.cancook.dto;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,11 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipeIngredientsDto {
+public class ScaledRecipeDto {
 
-  private Integer id;
   private Integer recipeId;
-  private Integer itemId;
-  private Integer quantityNeeded;
-  private String measurementUnit;
+  private Double scaleFactor;
+  private List<ScaledIngredientDto> scaledIngredients;
 }
