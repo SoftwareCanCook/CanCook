@@ -41,3 +41,13 @@ h1 {
     margin:auto;
     text-align: center;
 }
+
+.pdfEmbed {
+    width: 100%;
+    text-align: center;
+    
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left: -125px;
+    margin-right:auto;
+}
