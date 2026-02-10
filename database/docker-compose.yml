@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: WSU_4310_DB_Design_CANCOOK
+    restart: always
+    volumes:
+      - ./cancook.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./data:/var/lib/mysql                   # Mount a volume for data persistence (optional)
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=cancook
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    ports:
+      - 3333:3306
