@@ -1,0 +1,19 @@
+meta {
+  name: GET Comments by Recipe
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/api/comments/recipe/:recipeId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  recipeId: 1
+}
+
+settings {
+  encodeUrl: true
+}

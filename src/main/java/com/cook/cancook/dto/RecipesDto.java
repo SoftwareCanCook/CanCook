@@ -12,7 +12,7 @@ public class RecipesDto {
   private Integer id;
   private Integer userId;
   private String name;
-  private String imageUrl;
+  private byte[] image;
   private Boolean isPublic;
   private String instructionsAndTimers;
   private Float rating;

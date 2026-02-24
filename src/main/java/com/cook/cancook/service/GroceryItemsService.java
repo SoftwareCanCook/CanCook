@@ -7,6 +7,7 @@ import com.cook.cancook.repository.GroceryItemsRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,12 @@ public class GroceryItemsService {
     return groceryItemsMapper.toDtoList(items);
   }
 
+  public List<GroceryItemsDto> getAllGroceryItems(String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<GroceryItemsModel> items = groceryItemsRepository.findAll(sort);
+    return groceryItemsMapper.toDtoList(items);
+  }
+
   public Optional<GroceryItemsDto> getGroceryItemById(Integer id) {
     return groceryItemsRepository.findById(id).map(groceryItemsMapper::toDto);
   }
@@ -34,8 +41,22 @@ public class GroceryItemsService {
     return groceryItemsMapper.toDtoList(items);
   }
 
+  public List<GroceryItemsDto> getGroceryItemsByStoreId(
+      Integer storeId, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<GroceryItemsModel> items = groceryItemsRepository.findByStoreId(storeId, sort);
+    return groceryItemsMapper.toDtoList(items);
+  }
+
   public List<GroceryItemsDto> getGroceryItemsByCategory(String category) {
     List<GroceryItemsModel> items = groceryItemsRepository.findByCategory(category);
+    return groceryItemsMapper.toDtoList(items);
+  }
+
+  public List<GroceryItemsDto> getGroceryItemsByCategory(
+      String category, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<GroceryItemsModel> items = groceryItemsRepository.findByCategory(category, sort);
     return groceryItemsMapper.toDtoList(items);
   }
 
@@ -44,8 +65,22 @@ public class GroceryItemsService {
     return groceryItemsMapper.toDtoList(items);
   }
 
+  public List<GroceryItemsDto> searchGroceryItemsByName(
+      String name, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<GroceryItemsModel> items =
+        groceryItemsRepository.findByNameContainingIgnoreCase(name, sort);
+    return groceryItemsMapper.toDtoList(items);
+  }
+
   public List<GroceryItemsDto> getInStockItems(Integer minStock) {
     List<GroceryItemsModel> items = groceryItemsRepository.findByStockGreaterThan(minStock);
+    return groceryItemsMapper.toDtoList(items);
+  }
+
+  public List<GroceryItemsDto> getInStockItems(Integer minStock, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<GroceryItemsModel> items = groceryItemsRepository.findByStockGreaterThan(minStock, sort);
     return groceryItemsMapper.toDtoList(items);
   }
 
@@ -86,5 +121,14 @@ public class GroceryItemsService {
       return true;
     }
     return false;
+  }
+
+  private Sort createSort(String sortBy, String sortOrder) {
+    if (sortBy == null || sortBy.isEmpty()) {
+      sortBy = "id"; // default
+    }
+    Sort.Direction direction =
+        "desc".equalsIgnoreCase(sortOrder) ? Sort.Direction.DESC : Sort.Direction.ASC;
+    return Sort.by(direction, sortBy);
   }
 }

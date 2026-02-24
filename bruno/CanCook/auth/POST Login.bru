@@ -1,11 +1,11 @@
 meta {
-  name: POST new user
+  name: POST Login
   type: http
-  seq: 3
+  seq: 1
 }
 
 post {
-  url: {{BASE_URL}}/api/users
+  url: {{BASE_URL}}/api/auth/login
   body: json
   auth: inherit
 }
@@ -13,12 +13,10 @@ post {
 body:json {
   {
     "username": "johndoe",
-    "email": "johndoe@example.com",
     "password": "pass123"
   }
 }
 
 settings {
   encodeUrl: true
-  timeout: 0
 }

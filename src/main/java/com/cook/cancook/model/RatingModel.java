@@ -5,39 +5,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Recipes")
+@Table(name = "Ratings")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipesModel {
+public class RatingModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(name = "user_id")
+  @Column(name = "recipe_id", nullable = false)
+  private Integer recipeId;
+
+  @Column(name = "user_id", nullable = false)
   private Integer userId;
 
-  @Column
-  private String name;
-
-  @Lob
-  @Column(name = "image", columnDefinition = "LONGBLOB")
-  private byte[] image;
-
-  @Column(name = "is_public")
-  private Boolean isPublic;
-
-  @Column(name = "instructions_and_timers", columnDefinition = "TEXT")
-  private String instructionsAndTimers;
-
-  @Column
+  @Column(nullable = false)
   private Float rating;
+
+  @Column(name = "created_at", nullable = false)
+  private LocalDateTime createdAt;
 }

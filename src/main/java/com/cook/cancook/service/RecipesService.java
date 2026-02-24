@@ -7,6 +7,7 @@ import com.cook.cancook.repository.RecipesRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,12 @@ public class RecipesService {
     return recipesMapper.toDtoList(recipes);
   }
 
+  public List<RecipesDto> getAllRecipes(String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<RecipesModel> recipes = recipesRepository.findAll(sort);
+    return recipesMapper.toDtoList(recipes);
+  }
+
   public Optional<RecipesDto> getRecipeById(Integer id) {
     return recipesRepository.findById(id).map(recipesMapper::toDto);
   }
@@ -39,13 +46,31 @@ public class RecipesService {
     return recipesMapper.toDtoList(recipes);
   }
 
+  public List<RecipesDto> getPublicRecipes(String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<RecipesModel> recipes = recipesRepository.findByIsPublic(true, sort);
+    return recipesMapper.toDtoList(recipes);
+  }
+
   public List<RecipesDto> searchRecipesByName(String name) {
     List<RecipesModel> recipes = recipesRepository.findByNameContainingIgnoreCase(name);
     return recipesMapper.toDtoList(recipes);
   }
 
+  public List<RecipesDto> searchRecipesByName(String name, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<RecipesModel> recipes = recipesRepository.findByNameContainingIgnoreCase(name, sort);
+    return recipesMapper.toDtoList(recipes);
+  }
+
   public List<RecipesDto> getRecipesByMinRating(Float minRating) {
     List<RecipesModel> recipes = recipesRepository.findByRatingGreaterThanEqual(minRating);
+    return recipesMapper.toDtoList(recipes);
+  }
+
+  public List<RecipesDto> getRecipesByMinRating(Float minRating, String sortBy, String sortOrder) {
+    Sort sort = createSort(sortBy, sortOrder);
+    List<RecipesModel> recipes = recipesRepository.findByRatingGreaterThanEqual(minRating, sort);
     return recipesMapper.toDtoList(recipes);
   }
 
@@ -63,8 +88,8 @@ public class RecipesService {
       if (dto.getName() != null) {
         existingRecipe.setName(dto.getName());
       }
-      if (dto.getImageUrl() != null) {
-        existingRecipe.setImageUrl(dto.getImageUrl());
+      if (dto.getImage() != null) {
+        existingRecipe.setImage(dto.getImage());
       }
       if (dto.getIsPublic() != null) {
         existingRecipe.setIsPublic(dto.getIsPublic());
@@ -86,5 +111,14 @@ public class RecipesService {
       return true;
     }
     return false;
+  }
+
+  private Sort createSort(String sortBy, String sortOrder) {
+    if (sortBy == null || sortBy.isEmpty()) {
+      sortBy = "id"; // default
+    }
+    Sort.Direction direction =
+        "desc".equalsIgnoreCase(sortOrder) ? Sort.Direction.DESC : Sort.Direction.ASC;
+    return Sort.by(direction, sortBy);
   }
 }

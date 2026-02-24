@@ -1,0 +1,19 @@
+meta {
+  name: POST Upload Recipe Image
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/recipes/{{recipeId}}/image
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  image: @file(/path/to/your/image.jpg)
+}
+
+vars:pre-request {
+  recipeId: 1
+}

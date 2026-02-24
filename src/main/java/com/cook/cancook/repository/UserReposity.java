@@ -10,7 +10,9 @@ public interface UserReposity extends JpaRepository<UserModel, Integer> {
 
   Optional<UserModel> findByUsername(String username);
 
+  Optional<UserModel> findByEmail(String email);
+
   boolean existsByUsername(String username);
 
-  Optional<UserModel> findByPantryId(Integer pantryId);
+  boolean existsByEmail(String email);
 }

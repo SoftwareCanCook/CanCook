@@ -1,17 +1,17 @@
 meta {
-  name: Get user by pantry ID
+  name: GET Ratings by Recipe
   type: http
-  seq: 5
+  seq: 3
 }
 
 get {
-  url: {{BASE_URL}}/api/users/pantry/:pantryId
+  url: {{BASE_URL}}/api/ratings/recipe/:recipeId
   body: none
   auth: inherit
 }
 
 params:path {
-  pantryId: 
+  recipeId: 1
 }
 
 settings {

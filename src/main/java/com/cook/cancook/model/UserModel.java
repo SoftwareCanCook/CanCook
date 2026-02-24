@@ -21,10 +21,13 @@ public class UserModel {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(nullable = false, length = 8)
+  @Column(nullable = false, unique = true, length = 50)
   private String username;
 
-  @Column(nullable = false, length = 12)
+  @Column(nullable = false, unique = true, length = 100)
+  private String email;
+
+  @Column(nullable = false, length = 255)
   private String password;
 
   @Column(name = "login_attempts")
@@ -32,9 +35,6 @@ public class UserModel {
 
   @Column
   private Integer status;
-
-  @Column(name = "pantry_id")
-  private Integer pantryId;
 
   @Column(length = 12)
   private String role;
