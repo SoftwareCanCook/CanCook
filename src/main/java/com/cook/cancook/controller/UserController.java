@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*")
 public class UserController {
 
   @Autowired
@@ -46,21 +44,27 @@ public class UserController {
         .orElse(ResponseEntity.notFound().build());
   }
 
-  @GetMapping("/pantry/{pantryId}")
-  public ResponseEntity<UserDto> getUserByPantryId(@PathVariable Integer pantryId) {
-    return userService
-        .getUserByPantryId(pantryId)
-        .map(ResponseEntity::ok)
-        .orElse(ResponseEntity.notFound().build());
-  }
-
   @PostMapping
-  public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+  public ResponseEntity<?> createUser(@RequestBody UserDto userDto) {
     try {
+      // Set defaults if not provided
+      if (userDto.getLoginAttempts() == null) {
+        userDto.setLoginAttempts(0);
+      }
+      if (userDto.getStatus() == null) {
+        userDto.setStatus(1); // Active by default
+      }
+      if (userDto.getRole() == null || userDto.getRole().isEmpty()) {
+        userDto.setRole("user"); // Default role
+      }
+      if (userDto.getEmail() == null || userDto.getEmail().isEmpty()) {
+        userDto.setEmail(userDto.getUsername() + "@cancook.local"); // Default email
+      }
+
       UserDto createdUser = userService.createUser(userDto);
       return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     } catch (RuntimeException e) {
-      return ResponseEntity.badRequest().build();
+      return ResponseEntity.badRequest().body(e.getMessage());
     }
   }
 

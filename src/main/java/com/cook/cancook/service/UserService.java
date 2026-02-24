@@ -33,13 +33,12 @@ public class UserService {
     return userRepository.findByUsername(username).map(userMapper::toDto);
   }
 
-  public Optional<UserDto> getUserByPantryId(Integer pantryId) {
-    return userRepository.findByPantryId(pantryId).map(userMapper::toDto);
-  }
-
   public UserDto createUser(UserDto userDto) {
     if (userRepository.existsByUsername(userDto.getUsername())) {
       throw new RuntimeException("Username already exists");
+    }
+    if (userDto.getEmail() != null && userRepository.existsByEmail(userDto.getEmail())) {
+      throw new RuntimeException("Email already exists");
     }
     UserModel user = userMapper.toModel(userDto);
     UserModel savedUser = userRepository.save(user);
@@ -55,6 +54,12 @@ public class UserService {
         }
         existingUser.setUsername(userDto.getUsername());
       }
+      if (userDto.getEmail() != null && !userDto.getEmail().equals(existingUser.getEmail())) {
+        if (userRepository.existsByEmail(userDto.getEmail())) {
+          throw new RuntimeException("Email already exists");
+        }
+        existingUser.setEmail(userDto.getEmail());
+      }
       if (userDto.getPassword() != null) {
         existingUser.setPassword(userDto.getPassword());
       }
@@ -63,9 +68,6 @@ public class UserService {
       }
       if (userDto.getStatus() != null) {
         existingUser.setStatus(userDto.getStatus());
-      }
-      if (userDto.getPantryId() != null) {
-        existingUser.setPantryId(userDto.getPantryId());
       }
       if (userDto.getRole() != null) {
         existingUser.setRole(userDto.getRole());

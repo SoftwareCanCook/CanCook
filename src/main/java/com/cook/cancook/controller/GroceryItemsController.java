@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,15 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/grocery-items")
-@CrossOrigin(origins = "*")
 public class GroceryItemsController {
 
   @Autowired
   private GroceryItemsService groceryItemsService;
 
   @GetMapping
-  public ResponseEntity<List<GroceryItemsDto>> getAllGroceryItems() {
-    List<GroceryItemsDto> items = groceryItemsService.getAllGroceryItems();
+  public ResponseEntity<List<GroceryItemsDto>> getAllGroceryItems(
+      @RequestParam(required = false) String sortBy,
+      @RequestParam(required = false) String sortOrder) {
+    List<GroceryItemsDto> items;
+    if (sortBy != null && !sortBy.isEmpty()) {
+      items = groceryItemsService.getAllGroceryItems(sortBy, sortOrder);
+    } else {
+      items = groceryItemsService.getAllGroceryItems();
+    }
     return ResponseEntity.ok(items);
   }
 
@@ -41,27 +46,57 @@ public class GroceryItemsController {
 
   @GetMapping("/store/{storeId}")
   public ResponseEntity<List<GroceryItemsDto>> getGroceryItemsByStoreId(
-      @PathVariable Integer storeId) {
-    List<GroceryItemsDto> items = groceryItemsService.getGroceryItemsByStoreId(storeId);
+      @PathVariable Integer storeId,
+      @RequestParam(required = false) String sortBy,
+      @RequestParam(required = false) String sortOrder) {
+    List<GroceryItemsDto> items;
+    if (sortBy != null && !sortBy.isEmpty()) {
+      items = groceryItemsService.getGroceryItemsByStoreId(storeId, sortBy, sortOrder);
+    } else {
+      items = groceryItemsService.getGroceryItemsByStoreId(storeId);
+    }
     return ResponseEntity.ok(items);
   }
 
   @GetMapping("/category/{category}")
   public ResponseEntity<List<GroceryItemsDto>> getGroceryItemsByCategory(
-      @PathVariable String category) {
-    List<GroceryItemsDto> items = groceryItemsService.getGroceryItemsByCategory(category);
+      @PathVariable String category,
+      @RequestParam(required = false) String sortBy,
+      @RequestParam(required = false) String sortOrder) {
+    List<GroceryItemsDto> items;
+    if (sortBy != null && !sortBy.isEmpty()) {
+      items = groceryItemsService.getGroceryItemsByCategory(category, sortBy, sortOrder);
+    } else {
+      items = groceryItemsService.getGroceryItemsByCategory(category);
+    }
     return ResponseEntity.ok(items);
   }
 
   @GetMapping("/search")
-  public ResponseEntity<List<GroceryItemsDto>> searchGroceryItemsByName(@RequestParam String name) {
-    List<GroceryItemsDto> items = groceryItemsService.searchGroceryItemsByName(name);
+  public ResponseEntity<List<GroceryItemsDto>> searchGroceryItemsByName(
+      @RequestParam String name,
+      @RequestParam(required = false) String sortBy,
+      @RequestParam(required = false) String sortOrder) {
+    List<GroceryItemsDto> items;
+    if (sortBy != null && !sortBy.isEmpty()) {
+      items = groceryItemsService.searchGroceryItemsByName(name, sortBy, sortOrder);
+    } else {
+      items = groceryItemsService.searchGroceryItemsByName(name);
+    }
     return ResponseEntity.ok(items);
   }
 
   @GetMapping("/in-stock")
-  public ResponseEntity<List<GroceryItemsDto>> getInStockItems(@RequestParam Integer minStock) {
-    List<GroceryItemsDto> items = groceryItemsService.getInStockItems(minStock);
+  public ResponseEntity<List<GroceryItemsDto>> getInStockItems(
+      @RequestParam Integer minStock,
+      @RequestParam(required = false) String sortBy,
+      @RequestParam(required = false) String sortOrder) {
+    List<GroceryItemsDto> items;
+    if (sortBy != null && !sortBy.isEmpty()) {
+      items = groceryItemsService.getInStockItems(minStock, sortBy, sortOrder);
+    } else {
+      items = groceryItemsService.getInStockItems(minStock);
+    }
     return ResponseEntity.ok(items);
   }
 

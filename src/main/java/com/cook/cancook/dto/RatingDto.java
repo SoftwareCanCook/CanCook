@@ -1,5 +1,6 @@
 package com.cook.cancook.dto;
 
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class RatingDto {
 
   private Integer id;
-  private String username;
-  private String email;
-  private String password;
-  private Integer loginAttempts;
-  private Integer status;
-  private String role;
+  private Integer recipeId;
+  private Integer userId;
+  private Float rating;
+  private LocalDateTime createdAt;
 }

@@ -1,0 +1,19 @@
+meta {
+  name: GET Average Rating
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/api/ratings/recipe/:recipeId/average
+  body: none
+  auth: inherit
+}
+
+params:path {
+  recipeId: 1
+}
+
+settings {
+  encodeUrl: true
+}
