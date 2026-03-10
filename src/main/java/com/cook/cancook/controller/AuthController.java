@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,9 +85,14 @@ public class AuthController {
       response.put(
           "user",
           Map.of(
-              "id", user.getId(),
-              "username", user.getUsername(),
-              "email", user.getEmail() != null ? user.getEmail() : ""));
+              "id",
+              user.getId(),
+              "username",
+              user.getUsername(),
+              "email",
+              user.getEmail() != null ? user.getEmail() : "",
+              "role",
+              user.getRole() != null ? user.getRole() : "user"));
 
       return ResponseEntity.ok(response);
     } catch (Exception e) {
@@ -149,7 +153,11 @@ public class AuthController {
       response.put("token", token);
       response.put(
           "user",
-          Map.of("id", user.getId(), "username", user.getUsername(), "email", user.getEmail()));
+          Map.of(
+              "id", user.getId(),
+              "username", user.getUsername(),
+              "email", user.getEmail(),
+              "role", user.getRole() != null ? user.getRole() : "user"));
 
       return ResponseEntity.status(HttpStatus.CREATED).body(response);
     } catch (Exception e) {
