@@ -68,7 +68,7 @@ caption { font-size: 25px; padding: 6px; }
 
 .login-container { margin-top: 10%; display:flex; justify-content:center; align-items:center; }
 
-footer { position: fixed; bottom: 0; left: 0; right: 0; background:#333; color:#fff; text-align:center; padding:10px 0; z-index:100; }
+footer { position: fixed; bottom: 0; left: 0; right: 0; background:#252f67; color:#fff; text-align:center; padding:10px 0; z-index:100; }
 
 /* Recipe page */
 .recipe-page { margin: 30px; background: #fff; text-align: center; }
