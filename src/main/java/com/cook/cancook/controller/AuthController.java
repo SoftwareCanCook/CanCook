@@ -11,7 +11,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +25,6 @@ public class AuthController {
 
   @Autowired
   private UserReposity userRepository;
-
-  @Autowired
-  private PasswordEncoder passwordEncoder;
 
   @Autowired
   private JwtTokenUtil jwtTokenUtil;
@@ -54,7 +50,7 @@ public class AuthController {
       }
 
       // Verify password
-      if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+      if (!request.getPassword().equals(user.getPassword())) {
         // Increment login attempts
         int attempts = user.getLoginAttempts() != null ? user.getLoginAttempts() : 0;
         user.setLoginAttempts(attempts + 1);
@@ -137,7 +133,7 @@ public class AuthController {
       UserModel user = new UserModel();
       user.setUsername(request.getUsername());
       user.setEmail(email);
-      user.setPassword(passwordEncoder.encode(request.getPassword()));
+      user.setPassword(request.getPassword());
       user.setLoginAttempts(0);
       user.setStatus(1); // Active
       user.setRole("user"); // Default role
