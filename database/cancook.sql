@@ -1,70 +1,93 @@
-Table User {
-  id integer [pk, increment]
-  username varchar(50) [not null, unique]
-  email varchar(100) [not null, unique]
-  password varchar(255) [not null]
-  login_attempts smallint [not null, default: 0]
-  status smallint [not null, default: 1]
-  role varchar(12) [not null, default: 'user']
-}
+-- CanCook Database Schema
+-- Drop tables if they exist
+DROP TABLE IF EXISTS Ratings;
+DROP TABLE IF EXISTS Comments;
+DROP TABLE IF EXISTS Recipe_Ingredients;
+DROP TABLE IF EXISTS Recipes;
+DROP TABLE IF EXISTS Pantry;
+DROP TABLE IF EXISTS GroceryItems;
+DROP TABLE IF EXISTS User;
 
-Table GroceryItems {
-  id integer [pk, increment]
-  store_id integer [null]
-  name varchar(355) [not null]
-  category varchar(355) [not null]
-  quantity integer [not null, default: 0]
-  image longblob [null]
-  stock smallint [not null, default: 0]
-}
+-- Create User table
+CREATE TABLE User (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  login_attempts SMALLINT NOT NULL DEFAULT 0,
+  status SMALLINT NOT NULL DEFAULT 1,
+  role VARCHAR(12) NOT NULL DEFAULT 'user'
+);
 
-Table Pantry {
-  id integer [pk, increment]
-  user_id integer [not null]
-  item_id integer [not null]
-  quantity integer [not null]
-}
+-- Create GroceryItems table
+CREATE TABLE GroceryItems (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  store_id INT NULL,
+  name VARCHAR(355) NOT NULL,
+  category VARCHAR(355) NOT NULL,
+  quantity INT NOT NULL DEFAULT 0,
+  image LONGBLOB NULL,
+  stock SMALLINT NOT NULL DEFAULT 0
+);
 
-Table Recipes {
-  id integer [pk, increment]
-  user_id integer [not null]
-  name varchar(255) [not null]
-  image longblob [null]
-  is_public boolean [not null, default: true]
-  instructions_and_timers text [not null]
-  rating float [null]
-}
+-- Create Pantry table
+CREATE TABLE Pantry (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  item_id INT NOT NULL,
+  quantity INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE,
+  FOREIGN KEY (item_id) REFERENCES GroceryItems(id) ON DELETE CASCADE
+);
 
-Table Recipe_Ingredients {
-  id integer [pk, increment]
-  recipe_id integer [not null]
-  item_id integer [not null]
-  quantity_needed integer [not null]
-  measurement_unit varchar(50) [not null]
-}
+-- Create Recipes table
+CREATE TABLE Recipes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  image LONGBLOB NULL,
+  is_public BOOLEAN NOT NULL DEFAULT TRUE,
+  instructions_and_timers TEXT NOT NULL,
+  rating FLOAT NULL,
+  FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
+);
 
-Table Comments {
-  id integer [pk, increment]
-  recipe_id integer [not null]
-  user_id integer [not null]
-  comment_text text [not null]
-  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`]
-}
+-- Create Recipe_Ingredients table
+CREATE TABLE Recipe_Ingredients (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  recipe_id INT NOT NULL,
+  item_id INT NOT NULL,
+  quantity_needed INT NOT NULL,
+  measurement_unit VARCHAR(50) NOT NULL,
+  FOREIGN KEY (recipe_id) REFERENCES Recipes(id) ON DELETE CASCADE,
+  FOREIGN KEY (item_id) REFERENCES GroceryItems(id) ON DELETE CASCADE
+);
 
-Table Ratings {
-  id integer [pk, increment]
-  recipe_id integer [not null]
-  user_id integer [not null]
-  rating float [not null]
-  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`]
-}
+-- Create Comments table
+CREATE TABLE Comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  recipe_id INT NOT NULL,
+  user_id INT NOT NULL,
+  comment_text TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (recipe_id) REFERENCES Recipes(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
+);
 
-Ref: User.id < Pantry.user_id
-Ref: User.id < Recipes.user_id
-Ref: GroceryItems.id < Pantry.item_id
-Ref: Recipes.id < Recipe_Ingredients.recipe_id
-Ref: GroceryItems.id < Recipe_Ingredients.item_id
-Ref: Recipes.id < Comments.recipe_id
-Ref: User.id < Comments.user_id
-Ref: Recipes.id < Ratings.recipe_id
-Ref: User.id < Ratings.user_id
+-- Create Ratings table
+CREATE TABLE Ratings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  recipe_id INT NOT NULL,
+  user_id INT NOT NULL,
+  rating FLOAT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (recipe_id) REFERENCES Recipes(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE,
+  UNIQUE KEY unique_user_recipe_rating (user_id, recipe_id)
+);
+
+-- Insert default admin accounts
+-- Password for both accounts is "admin123"
+INSERT INTO User (username, email, password, login_attempts, status, role) VALUES
+('admin', 'admin@cancook.local', 'admin123', 0, 1, 'admin'),
+('groceryadmin', 'groceryadmin@cancook.local', 'admin123', 0, 1, 'admin');

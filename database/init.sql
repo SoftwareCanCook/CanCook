@@ -85,3 +85,9 @@ CREATE TABLE Ratings (
   FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE,
   UNIQUE KEY unique_user_recipe_rating (user_id, recipe_id)
 );
+
+-- Insert default admin accounts
+-- Password for both accounts is "admin123"
+INSERT INTO User (username, email, password, login_attempts, status, role) VALUES
+('admin', 'admin@cancook.local', 'admin123', 0, 1, 'admin'),
+('groceryadmin', 'groceryadmin@cancook.local', 'admin123', 0, 1, 'admin');
