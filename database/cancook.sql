@@ -68,3 +68,20 @@ Ref: Recipes.id < Comments.recipe_id
 Ref: User.id < Comments.user_id
 Ref: Recipes.id < Ratings.recipe_id
 Ref: User.id < Ratings.user_id
+
+-- Initialize the admins and grocery admins
+INSERT INTO cancook.`User` (username, email, password, login_attempts, role, status)
+VALUES ('admin1', 'admin1@example.com', '$2a$10$BM4V/w4mN2nBINJo4JS9AuzHMaUC7fvI/9bVB4AQhhMKKJvxSY1gi', 0, 'admin', 1);
+
+INSERT INTO cancook.`User` (username, email, password, login_attempts, role, status)
+VALUES ('admin2', 'admin2@example.com', '$2a$10$/uKI0lLnfcmaEgqhTHOdiO76u.QS4D84/QdUNTN1WfYZsrGyQ.x4O', 0, 'admin', 1);
+
+INSERT INTO cancook.`User` (username, email, password, login_attempts, role, status)
+VALUES ('groceryAdmin1', 'groceryAdmin1@example.com', '$2a$10$BM4V/w4mN2nBINJo4JS9AuzHMaUC7fvI/9bVB4AQhhMKKJvxSY1gi', 0, 'grocery', 1);
+
+INSERT INTO cancook.`User` (username, email, password, login_attempts, role, status)
+VALUES ('groceryAdmin2', 'groceryAdmin2@example.com', '$2a$10$/uKI0lLnfcmaEgqhTHOdiO76u.QS4D84/QdUNTN1WfYZsrGyQ.x4O', 0, 'grocery', 1);
+
+-- Add a default user for testing
+INSERT INTO cancook.`User` (username, email, password, login_attempts, role, status)
+VALUES ('lyalls', 'lyalls2004@gmail.com', '$2a$10$u5UCobtnDz6jFq7Lg74MUOzNN2mKiL.jH9.QwAtgkpjkfw3MBfiSG', 0, 'user', 1);
