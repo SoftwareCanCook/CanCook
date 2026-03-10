@@ -1,0 +1,83 @@
+/* Reset & Basic */
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #222;
+  background-color: #FFFFF0;
+}
+h1 { margin: 20px 0; }
+.goudy-font { font-family: 'Goudy Old Style', 'Garamond', serif; font-size: 2rem; }
+.content {
+  max-width: 1500px;
+  margin: 0 auto 70px auto;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: darkblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 3px solid rgb(189, 161, 3);
+}
+.navbar a { color: white; text-decoration: none; padding: 8px 10px; margin: 0 6px; }
+.navbar a:hover { background:#ddd; color:#000; }
+.logo { font-size: 1.5rem; font-weight: 700; color: #fff; }
+
+/* Carousel */
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel .card { position: relative; flex: 0 0 300px; scroll-snap-align: start; }
+.carousel .card img { width: 100%; display: block; border-radius: 12px; }
+.carousel .overlay-text { position: absolute; top: 10%; left: 50%; transform: translate(-50%,-50%); font-weight: 700; }
+.carousel .overlay-text a { color: #000; text-decoration: none; background: rgba(255,255,255,0.8); padding: 6px 10px; border-radius: 6px; }
+.carousel .card-rating { position: absolute; top: 4px; right: 4px; background: rgba(255,255,255,0.85); padding: 2px 6px; border-radius: 4px; display: flex; align-items: center; gap: 4px; font-size: 0.9rem; }
+.carousel .card-rating .rating-value { font-weight: 700; color: #333; }
+
+/* Popup */
+.popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 100; }
+.popup:target { display: flex; }
+.popup .popup-content { max-height: 75vh; max-width: 75vw; overflow: auto; background: #fff; padding: 20px; border-radius: 6px; text-align: center; z-index: 102; }
+.popup .popup-return { position:absolute; inset:0; z-index:101; }
+
+/* Tables */
+table { margin: 20px auto; width: 90%; border-collapse: collapse; border: 3px solid #000; }
+th, td { padding: 10px; border: 3px solid #000; }
+caption { font-size: 25px; padding: 6px; }
+
+/* Store card and other layout helpers */
+.store-container { width: 90%; margin: 20px auto; display:flex; justify-content:center; align-items:center; }
+.store-container .card { flex: 0 0 300px; }
+
+.login-container { margin-top: 10%; display:flex; justify-content:center; align-items:center; }
+
+footer { position: fixed; bottom: 0; left: 0; right: 0; background:#333; color:#fff; text-align:center; padding:10px 0; z-index:100; }
+
+/* Recipe page */
+.recipe-page { margin: 30px; background: #fff; text-align: center; }
+.recipe-page hr { border: 0; height: 3px; margin: 0; }
+.recipe-page h2 { font-size: 1.5rem; margin-bottom: 20px; }
+.recipe-image { max-width: 600px; margin: 0 auto 20px auto; }
+.rating-display { font-size: 1.25rem; margin: 10px 0; }
+.stars { color: gold; font-size: 1.5rem; }
+.ingredients ul { text-align:left; margin-bottom: 40px; }
+.instructions li { margin-bottom: 15px; text-align:left; }
+.comment { border-radius:8px; margin:10px; border:1px solid #aeacac; text-align:left; padding:6px; }
+.comment-header { display:flex; justify-content:space-between; margin:10px; }
