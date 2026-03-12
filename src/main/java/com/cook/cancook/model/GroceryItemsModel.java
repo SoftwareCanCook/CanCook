@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,12 +32,11 @@ public class GroceryItemsModel {
   @Column(length = 355)
   private String category;
 
-  @Column
-  private Integer quantity;
+  @Column(length = 50)
+  private String unit;
 
-  @Lob
-  @Column(columnDefinition = "LONGBLOB")
-  private byte[] image;
+  @Column(length = 1000)
+  private String image;
 
   @Column
   private Integer stock;

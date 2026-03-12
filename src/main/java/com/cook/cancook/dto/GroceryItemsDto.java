@@ -17,7 +17,7 @@ public class GroceryItemsDto {
   
   private String name;
   private String category;
-  private Integer quantity;
-  private byte[] image;
+  private String unit;
+  private String image;
   private Integer stock;
 }

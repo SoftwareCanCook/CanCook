@@ -101,8 +101,8 @@ public class GroceryItemsService {
       if (dto.getCategory() != null) {
         existingItem.setCategory(dto.getCategory());
       }
-      if (dto.getQuantity() != null) {
-        existingItem.setQuantity(dto.getQuantity());
+      if (dto.getUnit() != null) {
+        existingItem.setUnit(dto.getUnit());
       }
       if (dto.getImage() != null) {
         existingItem.setImage(dto.getImage());
