@@ -1,0 +1,19 @@
+meta {
+  name: GET Stores by City
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/api/stores?city=Springfield
+  body: none
+  auth: inherit
+}
+
+params:query {
+  city: Springfield
+}
+
+settings {
+  encodeUrl: true
+}

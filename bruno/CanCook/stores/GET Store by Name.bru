@@ -1,0 +1,19 @@
+meta {
+  name: GET Store by Name
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/api/stores/name/:name
+  body: none
+  auth: inherit
+}
+
+params:path {
+  name: Fresh Market Downtown
+}
+
+settings {
+  encodeUrl: true
+}

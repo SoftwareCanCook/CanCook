@@ -1,45 +1,45 @@
 package com.cook.cancook.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "GroceryItems")
+@Table(name = "Stores")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GroceryItemsModel {
+public class StoreModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(name = "store_id")
-  @JsonProperty("store_id")
-  private Integer storeId;
-
-  @Column(length = 355)
+  @Column(nullable = false)
   private String name;
 
-  @Column(length = 355)
-  private String category;
+  @Column(length = 500)
+  private String address;
 
-  @Column
-  private Integer quantity;
+  @Column(length = 100)
+  private String city;
 
-  @Lob
-  @Column(columnDefinition = "LONGBLOB")
-  private byte[] image;
+  @Column(length = 50)
+  private String state;
 
-  @Column
-  private Integer stock;
+  @Column(name = "zip_code", length = 20)
+  private String zipCode;
+
+  @Column(length = 20)
+  private String phone;
+
+  @Column(name = "created_at")
+  private LocalDateTime createdAt;
 }

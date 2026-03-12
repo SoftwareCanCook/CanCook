@@ -1,0 +1,19 @@
+meta {
+  name: DELETE Store
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{BASE_URL}}/api/stores/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 4
+}
+
+settings {
+  encodeUrl: true
+}

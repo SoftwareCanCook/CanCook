@@ -72,6 +72,9 @@ public class UserService {
       if (userDto.getRole() != null) {
         existingUser.setRole(userDto.getRole());
       }
+      if (userDto.getStoreId() != null) {
+        existingUser.setStoreId(userDto.getStoreId());
+      }
       UserModel updatedUser = userRepository.save(existingUser);
       return userMapper.toDto(updatedUser);
     });

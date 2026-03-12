@@ -1,0 +1,28 @@
+meta {
+  name: POST Create Grocery Admin
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/api/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "groceryadmin4",
+    "email": "groceryadmin4@example.com",
+    "password": "admin123",
+    "role": "groceryadmin",
+    "store_id": 1,
+    "status": 1,
+    "login_attempts": 0
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

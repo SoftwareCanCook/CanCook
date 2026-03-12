@@ -1,0 +1,19 @@
+meta {
+  name: GET Stores by State
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/api/stores?state=IL
+  body: none
+  auth: inherit
+}
+
+params:query {
+  state: IL
+}
+
+settings {
+  encodeUrl: true
+}

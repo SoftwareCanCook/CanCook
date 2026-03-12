@@ -1,5 +1,6 @@
 package com.cook.cancook.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ public class UserModel {
   private String password;
 
   @Column(name = "login_attempts")
+  @JsonProperty("login_attempts")
   private Integer loginAttempts;
 
   @Column
@@ -38,4 +40,8 @@ public class UserModel {
 
   @Column(length = 12)
   private String role;
+
+  @Column(name = "store_id")
+  @JsonProperty("store_id")
+  private Integer storeId;
 }

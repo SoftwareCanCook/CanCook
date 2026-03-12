@@ -1,0 +1,26 @@
+meta {
+  name: POST Create Store
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/api/stores
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Healthy Foods Market",
+    "address": "999 Health Street",
+    "city": "Springfield",
+    "state": "IL",
+    "zipCode": "62704",
+    "phone": "(217) 555-0400"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
