@@ -47,7 +47,8 @@ CREATE TABLE Recipes (
   name VARCHAR(255) NOT NULL,
   image LONGBLOB NULL,
   is_public BOOLEAN NOT NULL DEFAULT TRUE,
-  instructions_and_timers TEXT NOT NULL,
+  instructions TEXT NOT NULL,
+  timers TEXT NULL,
   rating FLOAT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );

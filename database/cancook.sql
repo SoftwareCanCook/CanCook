@@ -63,7 +63,8 @@ CREATE TABLE Recipes (
   name VARCHAR(255) NOT NULL,
   image VARCHAR(1000) NULL,
   is_public BOOLEAN NOT NULL DEFAULT TRUE,
-  instructions_and_timers TEXT NOT NULL,
+  instructions TEXT NOT NULL,
+  timers TEXT NULL,
   rating FLOAT NULL,
   FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );
@@ -265,7 +266,7 @@ INSERT INTO Pantry (user_id, item_id, quantity) VALUES
 (7, 18, 1);  -- Butter
 
 -- Insert recipes
-INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) VALUES
+INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VALUES
 (6, 'Classic Spaghetti Carbonara', TRUE, 
 '1. Cook spaghetti according to package directions (10 minutes)
 2. While pasta cooks, dice bacon and cook until crispy (8 minutes)
@@ -274,7 +275,8 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 5. Toss hot pasta with bacon, remove from heat
 6. Add egg mixture, tossing quickly (2 minutes)
 7. Add pasta water to reach desired consistency
-8. Season with black pepper and serve immediately', 4.5),
+8. Season with black pepper and serve immediately',
+'Step 1: 10 minutes; Step 2: 8 minutes; Step 6: 2 minutes', 4.5),
 
 (6, 'Chicken Stir Fry', TRUE,
 '1. Cut chicken into bite-sized pieces
@@ -282,14 +284,16 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 3. Cook chicken until golden (6 minutes)
 4. Remove chicken, add vegetables (5 minutes)
 5. Return chicken to wok with soy sauce (2 minutes)
-6. Serve over rice', 4.2),
+6. Serve over rice',
+'Step 2: 2 minutes; Step 3: 6 minutes; Step 4: 5 minutes; Step 5: 2 minutes', 4.2),
 
 (4, 'Tomato Basil Pasta', TRUE,
 '1. Cook pasta according to package (10 minutes)
 2. Sauté garlic in olive oil (2 minutes)
 3. Add crushed tomatoes and simmer (15 minutes)
 4. Add fresh basil and season (2 minutes)
-5. Toss with cooked pasta and serve', 4.7),
+5. Toss with cooked pasta and serve',
+'Step 1: 10 minutes; Step 2: 2 minutes; Step 3: 15 minutes; Step 4: 2 minutes', 4.7),
 
 (5, 'Garlic Butter Shrimp', TRUE,
 '1. Peel and devein shrimp
@@ -297,7 +301,8 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 3. Add minced garlic (1 minute)
 4. Cook shrimp until pink (4-5 minutes)
 5. Season with salt, pepper, and lemon juice
-6. Garnish with parsley and serve', 4.8),
+6. Garnish with parsley and serve',
+'Step 2: 2 minutes; Step 3: 1 minute; Step 4: 4-5 minutes', 4.8),
 
 (7, 'Chocolate Chip Cookies', TRUE,
 '1. Preheat oven to 375°F (10 minutes)
@@ -307,7 +312,8 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 5. Fold in chocolate chips (1 minute)
 6. Drop spoonfuls on baking sheet
 7. Bake for 10-12 minutes
-8. Cool on wire rack (15 minutes)', 4.9),
+8. Cool on wire rack (15 minutes)',
+'Step 1: 10 minutes; Step 2: 3 minutes; Step 3: 2 minutes; Step 4: 2 minutes; Step 5: 1 minute; Step 7: 10-12 minutes; Step 8: 15 minutes', 4.9),
 
 (4, 'Simple Scrambled Eggs', FALSE,
 '1. Beat eggs with milk and salt (1 minute)
@@ -315,7 +321,8 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 3. Pour in eggs and let sit (30 seconds)
 4. Gently stir until fluffy (3-4 minutes)
 5. Remove from heat while slightly wet
-6. Season and serve immediately', 4.0),
+6. Season and serve immediately',
+'Step 1: 1 minute; Step 2: 1 minute; Step 3: 30 seconds; Step 4: 3-4 minutes', 4.0),
 
 (6, 'Beef Tacos', TRUE,
 '1. Brown ground beef in skillet (8 minutes)
@@ -323,7 +330,8 @@ INSERT INTO Recipes (user_id, name, is_public, instructions_and_timers, rating) 
 3. Simmer until thickened (5 minutes)
 4. Warm taco shells (3 minutes)
 5. Assemble with lettuce, cheese, tomatoes
-6. Serve with sour cream and salsa', 4.6);
+6. Serve with sour cream and salsa',
+'Step 1: 8 minutes; Step 2: 5 minutes; Step 3: 5 minutes; Step 4: 3 minutes', 4.6);
 
 -- Insert recipe ingredients
 INSERT INTO Recipe_Ingredients (recipe_id, item_id, quantity_needed, measurement_unit) VALUES

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipesDto {
+public class RecipeDetailDto {
 
   private Integer id;
   private Integer userId;
@@ -18,5 +18,5 @@ public class RecipesDto {
   private String instructions;
   private String timers;
   private Float rating;
-  private List<RecipeIngredientInputDto> ingredients;
+  private List<RecipeIngredientsDto> ingredients;
 }

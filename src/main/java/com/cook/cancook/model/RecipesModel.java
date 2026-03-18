@@ -33,8 +33,11 @@ public class RecipesModel {
   @Column(name = "is_public")
   private Boolean isPublic;
 
-  @Column(name = "instructions_and_timers", columnDefinition = "TEXT")
-  private String instructionsAndTimers;
+  @Column(name = "instructions", columnDefinition = "TEXT")
+  private String instructions;
+
+  @Column(name = "timers", columnDefinition = "TEXT")
+  private String timers;
 
   @Column
   private Float rating;

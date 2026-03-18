@@ -1,5 +1,6 @@
 package com.cook.cancook.controller;
 
+import com.cook.cancook.dto.RecipeDetailDto;
 import com.cook.cancook.dto.RecipesDto;
 import com.cook.cancook.service.RecipesService;
 import java.util.List;
@@ -37,9 +38,9 @@ public class RecipesController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<RecipesDto> getRecipeById(@PathVariable Integer id) {
+    public ResponseEntity<RecipeDetailDto> getRecipeById(@PathVariable Integer id) {
     return recipesService
-        .getRecipeById(id)
+      .getRecipeDetailById(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
   }
