@@ -1,0 +1,30 @@
+meta {
+  name: PUT Update Store
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{BASE_URL}}/api/stores/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "name": "Fresh Market Downtown - Updated",
+    "address": "123 Main Street",
+    "city": "Springfield",
+    "state": "IL",
+    "zipCode": "62701",
+    "phone": "(217) 555-0101"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

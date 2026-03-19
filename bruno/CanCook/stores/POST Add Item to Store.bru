@@ -1,0 +1,25 @@
+meta {
+  name: POST Add Item to Store
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{BASE_URL}}/api/stores/1/items
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Fresh Organic Spinach",
+    "category": "Produce",
+    "unit": "bunch",
+    "image": "https://i.imgur.com/example.jpg",
+    "stock": 45
+  }
+}
+
+settings {
+  encodeUrl: true
+}

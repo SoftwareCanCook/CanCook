@@ -1,0 +1,20 @@
+meta {
+  name: GET Stores by City and State
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/api/stores?city=Springfield&state=IL
+  body: none
+  auth: inherit
+}
+
+params:query {
+  city: Springfield
+  state: IL
+}
+
+settings {
+  encodeUrl: true
+}

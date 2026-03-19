@@ -1,0 +1,25 @@
+meta {
+  name: POST Signup Grocery Admin
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/api/auth/signup
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "groceryadmin3",
+    "email": "groceryadmin3@example.com",
+    "password": "admin123",
+    "role": "groceryadmin",
+    "store_id": 3
+  }
+}
+
+settings {
+  encodeUrl: true
+}

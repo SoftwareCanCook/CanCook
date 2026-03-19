@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,15 +27,17 @@ public class RecipesModel {
   @Column
   private String name;
 
-  @Lob
-  @Column(name = "image", columnDefinition = "LONGBLOB")
-  private byte[] image;
+  @Column(length = 1000)
+  private String image;
 
   @Column(name = "is_public")
   private Boolean isPublic;
 
-  @Column(name = "instructions_and_timers", columnDefinition = "TEXT")
-  private String instructionsAndTimers;
+  @Column(name = "instructions", columnDefinition = "TEXT")
+  private String instructions;
+
+  @Column(name = "timers", columnDefinition = "TEXT")
+  private String timers;
 
   @Column
   private Float rating;

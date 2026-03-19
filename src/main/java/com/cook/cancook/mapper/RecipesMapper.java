@@ -4,6 +4,7 @@ import com.cook.cancook.dto.RecipesDto;
 import com.cook.cancook.model.RecipesModel;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
@@ -11,6 +12,7 @@ public interface RecipesMapper {
 
   RecipesMapper INSTANCE = Mappers.getMapper(RecipesMapper.class);
 
+  @Mapping(target = "ingredients", ignore = true)
   RecipesDto toDto(RecipesModel model);
 
   RecipesModel toModel(RecipesDto dto);

@@ -78,17 +78,15 @@ public class AuthController {
       // Return response
       Map<String, Object> response = new HashMap<>();
       response.put("token", token);
-      response.put(
-          "user",
-          Map.of(
-              "id",
-              user.getId(),
-              "username",
-              user.getUsername(),
-              "email",
-              user.getEmail() != null ? user.getEmail() : "",
-              "role",
-              user.getRole() != null ? user.getRole() : "user"));
+      Map<String, Object> userMap = new HashMap<>();
+      userMap.put("id", user.getId());
+      userMap.put("username", user.getUsername());
+      userMap.put("email", user.getEmail() != null ? user.getEmail() : "");
+      userMap.put("role", user.getRole() != null ? user.getRole() : "user");
+      if (user.getStoreId() != null) {
+        userMap.put("store_id", user.getStoreId());
+      }
+      response.put("user", userMap);
 
       return ResponseEntity.ok(response);
     } catch (Exception e) {
@@ -129,6 +127,20 @@ public class AuthController {
         email = request.getUsername() + "@cancook.local";
       }
 
+      // Validate role and store assignment
+      String role = request.getRole();
+      if (role == null || role.trim().isEmpty()) {
+        role = "user"; // Default role
+      }
+      
+      // Grocery admins must be assigned to a store
+      if ("groceryadmin".equals(role)) {
+        if (request.getStore_id() == null) {
+          return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+              .body(Map.of("message", "Grocery admins must be assigned to a store"));
+        }
+      }
+
       // Create new user
       UserModel user = new UserModel();
       user.setUsername(request.getUsername());
@@ -136,7 +148,12 @@ public class AuthController {
       user.setPassword(request.getPassword());
       user.setLoginAttempts(0);
       user.setStatus(1); // Active
-      user.setRole("user"); // Default role
+      user.setRole(role);
+      
+      // Set store ID if provided
+      if (request.getStore_id() != null) {
+        user.setStoreId(request.getStore_id());
+      }
 
       // Save user
       user = userRepository.save(user);
@@ -147,13 +164,15 @@ public class AuthController {
       // Return response
       Map<String, Object> response = new HashMap<>();
       response.put("token", token);
-      response.put(
-          "user",
-          Map.of(
-              "id", user.getId(),
-              "username", user.getUsername(),
-              "email", user.getEmail(),
-              "role", user.getRole() != null ? user.getRole() : "user"));
+      Map<String, Object> userMap = new HashMap<>();
+      userMap.put("id", user.getId());
+      userMap.put("username", user.getUsername());
+      userMap.put("email", user.getEmail());
+      userMap.put("role", user.getRole() != null ? user.getRole() : "user");
+      if (user.getStoreId() != null) {
+        userMap.put("store_id", user.getStoreId());
+      }
+      response.put("user", userMap);
 
       return ResponseEntity.status(HttpStatus.CREATED).body(response);
     } catch (Exception e) {

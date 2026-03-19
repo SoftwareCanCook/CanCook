@@ -1,12 +1,11 @@
 package com.cook.cancook.controller;
 
+import com.cook.cancook.dto.RecipeDetailDto;
 import com.cook.cancook.dto.RecipesDto;
 import com.cook.cancook.service.RecipesService;
-import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -40,9 +38,9 @@ public class RecipesController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<RecipesDto> getRecipeById(@PathVariable Integer id) {
+    public ResponseEntity<RecipeDetailDto> getRecipeById(@PathVariable Integer id) {
     return recipesService
-        .getRecipeById(id)
+      .getRecipeDetailById(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
   }
@@ -115,34 +113,5 @@ public class RecipesController {
       return ResponseEntity.noContent().build();
     }
     return ResponseEntity.notFound().build();
-  }
-
-  @PostMapping("/{id}/image")
-  public ResponseEntity<String> uploadRecipeImage(
-      @PathVariable Integer id, @RequestParam("image") MultipartFile file) {
-    try {
-      byte[] imageBytes = file.getBytes();
-      return recipesService
-          .getRecipeById(id)
-          .map(recipe -> {
-            recipe.setImage(imageBytes);
-            recipesService.updateRecipe(id, recipe);
-            return ResponseEntity.ok("Image uploaded successfully");
-          })
-          .orElse(ResponseEntity.notFound().build());
-    } catch (IOException e) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-          .body("Failed to upload image: " + e.getMessage());
-    }
-  }
-
-  @GetMapping("/{id}/image")
-  public ResponseEntity<byte[]> getRecipeImage(@PathVariable Integer id) {
-    return recipesService
-        .getRecipeById(id)
-        .filter(recipe -> recipe.getImage() != null)
-        .map(
-            recipe -> ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(recipe.getImage()))
-        .orElse(ResponseEntity.notFound().build());
   }
 }
