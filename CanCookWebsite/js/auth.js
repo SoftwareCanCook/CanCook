@@ -81,14 +81,17 @@ class AuthService {
 async function handleLogin(event) {
     event.preventDefault();
     
-    const username = document.getElementById('userUsername').value;
-    const password = document.getElementById('userPassword').value;
+    const username = document.getElementById('usernameInputBox').value;
+    const password = document.getElementById('passwordInputBox').value;
+    const button = event.target.querySelector('button');
     
     try {
+        button.classList.add('loading');
         await AuthService.login(username, password);
         // Redirect to home page after successful login
         window.location.href = 'index.html';
     } catch (error) {
+        button.classList.remove('loading');
         alert('Login failed: ' + error.message);
     }
 }
@@ -100,12 +103,15 @@ async function handleSignup(event) {
     const email = document.getElementById('email').value;
     const username = document.getElementById('userUsername').value;
     const password = document.getElementById('userPassword').value;
+    const button = event.target.querySelector('button');
     
     try {
+        button.classList.add('loading');
         await AuthService.signup(email, username, password);
         // Redirect to home page after successful signup
         window.location.href = 'index.html';
     } catch (error) {
+        button.classList.remove('loading');
         alert('Signup failed: ' + error.message);
     }
 }
