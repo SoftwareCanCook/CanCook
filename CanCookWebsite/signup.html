@@ -29,19 +29,31 @@
 
     <!-- Sign Up -->
     <div class="content">
-        <div class="login-container">
+        <div class="loginBox">
             <h2>Sign Up</h2>
             <form onsubmit="handleSignup(event)">
-                <label for="email">Email</label>
-                <input type="email" id="email" aria-label="Enter your email" required>
-                <br><br>
-                <label for="userUsername">Username</label>
-                <input type="text" id="userUsername" aria-label="Enter a username" required>
-                <br><br>
-                <label for="userPassword">Password</label>
-                <input type="password" id="userPassword" aria-label="Enter a password" required>
-                <br><br>
-                <button type="submit">Sign Up</button>
+                <div class="userInputBox">
+                    <input type="text" id="userUsername" required>
+                    <label for="userUsername">Username</label>
+                </div>
+
+                <div class="userInputBox">
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="userInputBox">
+                    <input type="password" id="userPassword" required>
+                    <label for="userPassword">Password</label>
+                </div>
+                <button type="submit">
+                    <!-- span tag for button animation -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Sign Up
+                </button>
             </form>
             <a href="login.html"><button style="margin-top: 10px;">Back to Login</button></a>
         </div>
