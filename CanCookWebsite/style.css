@@ -27,7 +27,6 @@ h1 { margin: 20px 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  border: 3px solid rgb(189, 161, 3);
 }
 .navbar a { color: white; text-decoration: none; padding: 8px 10px; margin: 0 6px; }
 .navbar a:hover { background:#ddd; color:#000; }
@@ -66,9 +65,221 @@ caption { font-size: 25px; padding: 6px; }
 .store-container { width: 90%; margin: 20px auto; display:flex; justify-content:center; align-items:center; }
 .store-container .card { flex: 0 0 300px; }
 
-.login-container { margin-top: 10%; display:flex; justify-content:center; align-items:center; }
+.loginBox { 
+    margin: 10% auto 0; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
 
-footer { position: fixed; bottom: 0; left: 0; right: 0; background:#252f67; color:#fff; text-align:center; padding:10px 0; z-index:100; }
+.loginBox h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container {
+    margin: 10% auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.login-container input {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.userInputBox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.userInputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.userInputBox label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.userInputBox input:focus ~ label,
+.userInputBox input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #333;
+}
+
+.loginBox button {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.loginBox button span {
+    position: absolute;
+    display: block;
+}
+
+.loginBox button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff);
+}
+
+.loginBox button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fff);
+}
+
+.loginBox button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #fff);
+}
+
+.loginBox button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #fff);
+}
+
+.loginBox button:hover span:nth-child(1) {
+    animation: btn-anim1 1s linear infinite;
+}
+
+.loginBox button:hover span:nth-child(2) {
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+.loginBox button:hover span:nth-child(3) {
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.loginBox button:hover span:nth-child(4) {
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.loginBox button.loading span:nth-child(1) {
+    animation: btn-anim1 1s linear infinite;
+}
+
+.loginBox button.loading span:nth-child(2) {
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+.loginBox button.loading span:nth-child(3) {
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.loginBox button.loading span:nth-child(4) {
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes btn-anim1 {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes btn-anim2 {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+@keyframes btn-anim3 {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+@keyframes btn-anim4 {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+footer { position: fixed; bottom: 0; left: 0; right: 0; background-color: darkblue; color:#fff; text-align:center; padding:5px 0; z-index:100; font-size: 0.85rem; }
+footer p { margin: 0; }
 
 /* Recipe page */
 .recipe-page { margin: 30px; background: #fff; text-align: center; }
