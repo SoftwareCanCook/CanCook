@@ -29,16 +29,26 @@
 
     <!-- Login -->
     <div class="content">
-        <div class="login-container">
+        <div class="loginBox">
             <h2>Login</h2>
             <form onsubmit="handleLogin(event)">
-                <label for="userUsername">Username</label>
-                <input type="text" id="userUsername" aria-label="Enter your username" required>
-                <br><br>
-                <label for="userPassword">Password</label>
-                <input type="password" id="userPassword" aria-label="Enter your password" required>
-                <br><br>
-                <button type="submit">Login</button>
+                <div class="userInputBox">
+                    <input type="text" id="usernameInputBox" required>
+                    <label for="usernameInputBox">Username</label>
+                </div>
+
+                <div class="userInputBox">
+                    <input type="password" id="passwordInputBox" required>
+                    <label for="passwordInputBox">Password</label>
+                </div>
+                <button type="submit">
+                    <!-- span tag for button animation -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Login
+                </button>
             </form>
             <a href="signup.html"><button style="margin-top: 10px;">Sign Up</button></a>
         </div>
