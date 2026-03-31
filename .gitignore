@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Local database runtime files ###
+database/data/
+database/data/**

@@ -121,106 +121,106 @@ INSERT INTO User (username, email, password, login_attempts, status, role, store
 ('bakerlisa', 'baker.lisa@email.com', 'pass123', 0, 1, 'user', NULL);
 
 -- Insert grocery items
-INSERT INTO GroceryItems (store_id, name, category, unit, stock) VALUES
+INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 -- Produce
-(1, 'Tomatoes', 'Produce', 'lb', 100),
-(1, 'Onions', 'Produce', 'lb', 150),
-(1, 'Garlic', 'Produce', 'cloves', 200),
-(1, 'Bell Peppers', 'Produce', 'each', 80),
-(1, 'Carrots', 'Produce', 'lb', 120),
-(1, 'Celery', 'Produce', 'bunch', 90),
-(1, 'Potatoes', 'Produce', 'lb', 200),
-(1, 'Lettuce', 'Produce', 'head', 60),
-(1, 'Spinach', 'Produce', 'bunch', 75),
-(1, 'Mushrooms', 'Produce', 'lb', 55),
+(1, 'Tomatoes', 'Produce', 'lb', NULL, 100),
+(1, 'Onions', 'Produce', 'lb', NULL, 150),
+(1, 'Garlic', 'Produce', 'cloves', NULL, 200),
+(1, 'Bell Peppers', 'Produce', 'each', NULL, 80),
+(1, 'Carrots', 'Produce', 'lb', NULL, 120),
+(1, 'Celery', 'Produce', 'bunch', NULL, 90),
+(1, 'Potatoes', 'Produce', 'lb', NULL, 200),
+(1, 'Lettuce', 'Produce', 'head', NULL, 60),
+(1, 'Spinach', 'Produce', 'bunch', NULL, 75),
+(1, 'Mushrooms', 'Produce', 'lb', NULL, 55),
 -- Meats & Seafood
-(1, 'Chicken Breast', 'Meats & Seafood', 'lb', 50),
-(1, 'Ground Beef', 'Meats & Seafood', 'lb', 60),
-(1, 'Salmon Fillet', 'Meats & Seafood', 'lb', 30),
-(1, 'Shrimp', 'Meats & Seafood', 'lb', 40),
-(1, 'Eggs', 'Dairy', 'dozen', 200),
-(1, 'Bacon', 'Meats & Seafood', 'lb', 70),
+(1, 'Chicken Breast', 'Meats & Seafood', 'lb', NULL, 50),
+(1, 'Ground Beef', 'Meats & Seafood', 'lb', NULL, 60),
+(1, 'Salmon Fillet', 'Meats & Seafood', 'lb', NULL, 30),
+(1, 'Shrimp', 'Meats & Seafood', 'lb', NULL, 40),
+(1, 'Eggs', 'Dairy', 'dozen', NULL, 200),
+(1, 'Bacon', 'Meats & Seafood', 'lb', NULL, 70),
 -- Dairy
-(1, 'Milk', 'Dairy', 'gallon', 100),
-(1, 'Butter', 'Dairy', 'lb', 80),
-(1, 'Cheddar Cheese', 'Dairy', 'lb', 65),
-(1, 'Parmesan Cheese', 'Dairy', 'oz', 50),
-(1, 'Mozzarella Cheese', 'Dairy', 'lb', 55),
-(1, 'Heavy Cream', 'Dairy', 'pint', 45),
+(1, 'Milk', 'Dairy', 'gallon', NULL, 100),
+(1, 'Butter', 'Dairy', 'lb', NULL, 80),
+(1, 'Cheddar Cheese', 'Dairy', 'lb', NULL, 65),
+(1, 'Parmesan Cheese', 'Dairy', 'oz', NULL, 50),
+(1, 'Mozzarella Cheese', 'Dairy', 'lb', NULL, 55),
+(1, 'Heavy Cream', 'Dairy', 'pint', NULL, 45),
 -- Bakery & Pantry Staples
-(1, 'All-Purpose Flour', 'Bakery', 'lb', 100),
-(1, 'Sugar', 'Bakery', 'lb', 120),
-(1, 'Salt', 'Pantry Staples', 'oz', 200),
-(1, 'Black Pepper', 'Pantry Staples', 'oz', 150),
-(1, 'Olive Oil', 'Pantry Staples', 'bottle', 90),
-(1, 'Vegetable Oil', 'Pantry Staples', 'bottle', 85),
-(1, 'Soy Sauce', 'Pantry Staples', 'bottle', 70),
-(1, 'Balsamic Vinegar', 'Pantry Staples', 'bottle', 60),
-(1, 'Spaghetti', 'Pantry Staples', 'lb', 150),
-(1, 'Penne Pasta', 'Pantry Staples', 'lb', 140),
-(1, 'Rice', 'Pantry Staples', 'lb', 180),
-(1, 'Quinoa', 'Pantry Staples', 'lb', 70),
-(1, 'Crushed Tomatoes', 'Pantry Staples', 'can', 100),
-(1, 'Tomato Paste', 'Pantry Staples', 'can', 90),
-(1, 'Chicken Broth', 'Pantry Staples', 'can', 80),
-(1, 'Coconut Milk', 'Pantry Staples', 'can', 65),
-(1, 'Basil', 'Pantry Staples', 'oz', 100),
-(1, 'Oregano', 'Pantry Staples', 'oz', 95),
-(1, 'Thyme', 'Pantry Staples', 'oz', 90),
-(1, 'Rosemary', 'Pantry Staples', 'oz', 85),
-(1, 'Paprika', 'Pantry Staples', 'oz', 80),
-(1, 'Cumin', 'Pantry Staples', 'oz', 75),
-(1, 'Chili Powder', 'Pantry Staples', 'oz', 70),
+(1, 'All-Purpose Flour', 'Bakery', 'lb', NULL, 100),
+(1, 'Sugar', 'Bakery', 'lb', NULL, 120),
+(1, 'Salt', 'Pantry Staples', 'oz', NULL, 200),
+(1, 'Black Pepper', 'Pantry Staples', 'oz', NULL, 150),
+(1, 'Olive Oil', 'Pantry Staples', 'bottle', NULL, 90),
+(1, 'Vegetable Oil', 'Pantry Staples', 'bottle', NULL, 85),
+(1, 'Soy Sauce', 'Pantry Staples', 'bottle', NULL, 70),
+(1, 'Balsamic Vinegar', 'Pantry Staples', 'bottle', NULL, 60),
+(1, 'Spaghetti', 'Pantry Staples', 'lb', NULL, 150),
+(1, 'Penne Pasta', 'Pantry Staples', 'lb', NULL, 140),
+(1, 'Rice', 'Pantry Staples', 'lb', NULL, 180),
+(1, 'Quinoa', 'Pantry Staples', 'lb', NULL, 70),
+(1, 'Crushed Tomatoes', 'Pantry Staples', 'can', NULL, 100),
+(1, 'Tomato Paste', 'Pantry Staples', 'can', NULL, 90),
+(1, 'Chicken Broth', 'Pantry Staples', 'can', NULL, 80),
+(1, 'Coconut Milk', 'Pantry Staples', 'can', NULL, 65),
+(1, 'Basil', 'Pantry Staples', 'oz', NULL, 100),
+(1, 'Oregano', 'Pantry Staples', 'oz', NULL, 95),
+(1, 'Thyme', 'Pantry Staples', 'oz', NULL, 90),
+(1, 'Rosemary', 'Pantry Staples', 'oz', NULL, 85),
+(1, 'Paprika', 'Pantry Staples', 'oz', NULL, 80),
+(1, 'Cumin', 'Pantry Staples', 'oz', NULL, 75),
+(1, 'Chili Powder', 'Pantry Staples', 'oz', NULL, 70),
 -- Store 2 (Green Grocers Westside) - Items
 -- Produce
-(2, 'Tomatoes', 'Produce', 'lb', 85),
-(2, 'Onions', 'Produce', 'lb', 130),
-(2, 'Garlic', 'Produce', 'cloves', 180),
-(2, 'Bell Peppers', 'Produce', 'each', 70),
-(2, 'Broccoli', 'Produce', 'bunch', 60),
-(2, 'Cucumbers', 'Produce', 'each', 90),
-(2, 'Avocados', 'Produce', 'each', 50),
+(2, 'Tomatoes', 'Produce', 'lb', NULL, 85),
+(2, 'Onions', 'Produce', 'lb', NULL, 130),
+(2, 'Garlic', 'Produce', 'cloves', NULL, 180),
+(2, 'Bell Peppers', 'Produce', 'each', NULL, 70),
+(2, 'Broccoli', 'Produce', 'bunch', NULL, 60),
+(2, 'Cucumbers', 'Produce', 'each', NULL, 90),
+(2, 'Avocados', 'Produce', 'each', NULL, 50),
 -- Meats & Seafood
-(2, 'Chicken Breast', 'Meats & Seafood', 'lb', 45),
-(2, 'Ground Turkey', 'Meats & Seafood', 'lb', 40),
-(2, 'Pork Chops', 'Meats & Seafood', 'lb', 35),
-(2, 'Eggs', 'Dairy', 'dozen', 180),
+(2, 'Chicken Breast', 'Meats & Seafood', 'lb', NULL, 45),
+(2, 'Ground Turkey', 'Meats & Seafood', 'lb', NULL, 40),
+(2, 'Pork Chops', 'Meats & Seafood', 'lb', NULL, 35),
+(2, 'Eggs', 'Dairy', 'dozen', NULL, 180),
 -- Dairy
-(2, 'Milk', 'Dairy', 'gallon', 95),
-(2, 'Butter', 'Dairy', 'lb', 70),
-(2, 'Greek Yogurt', 'Dairy', 'oz', 60),
-(2, 'Cream Cheese', 'Dairy', 'oz', 55),
+(2, 'Milk', 'Dairy', 'gallon', NULL, 95),
+(2, 'Butter', 'Dairy', 'lb', NULL, 70),
+(2, 'Greek Yogurt', 'Dairy', 'oz', NULL, 60),
+(2, 'Cream Cheese', 'Dairy', 'oz', NULL, 55),
 -- Bakery & Pantry Staples
-(2, 'All-Purpose Flour', 'Bakery', 'lb', 90),
-(2, 'Brown Sugar', 'Bakery', 'lb', 85),
-(2, 'Salt', 'Pantry Staples', 'oz', 180),
-(2, 'Olive Oil', 'Pantry Staples', 'bottle', 80),
-(2, 'Honey', 'Pantry Staples', 'jar', 45),
-(2, 'Spaghetti', 'Pantry Staples', 'lb', 130),
-(2, 'Rice', 'Pantry Staples', 'lb', 160),
-(2, 'Oatmeal', 'Pantry Staples', 'lb', 100),
+(2, 'All-Purpose Flour', 'Bakery', 'lb', NULL, 90),
+(2, 'Brown Sugar', 'Bakery', 'lb', NULL, 85),
+(2, 'Salt', 'Pantry Staples', 'oz', NULL, 180),
+(2, 'Olive Oil', 'Pantry Staples', 'bottle', NULL, 80),
+(2, 'Honey', 'Pantry Staples', 'jar', NULL, 45),
+(2, 'Spaghetti', 'Pantry Staples', 'lb', NULL, 130),
+(2, 'Rice', 'Pantry Staples', 'lb', NULL, 160),
+(2, 'Oatmeal', 'Pantry Staples', 'lb', NULL, 100),
 -- Store 3 (Organic Plus) - Premium organic items
 -- Produce
-(3, 'Organic Tomatoes', 'Produce', 'lb', 60),
-(3, 'Organic Spinach', 'Produce', 'bunch', 55),
-(3, 'Organic Kale', 'Produce', 'bunch', 45),
-(3, 'Organic Carrots', 'Produce', 'lb', 70),
-(3, 'Organic Bell Peppers', 'Produce', 'each', 50),
+(3, 'Organic Tomatoes', 'Produce', 'lb', NULL, 60),
+(3, 'Organic Spinach', 'Produce', 'bunch', NULL, 55),
+(3, 'Organic Kale', 'Produce', 'bunch', NULL, 45),
+(3, 'Organic Carrots', 'Produce', 'lb', NULL, 70),
+(3, 'Organic Bell Peppers', 'Produce', 'each', NULL, 50),
 -- Meats & Seafood
-(3, 'Organic Chicken Breast', 'Meats & Seafood', 'lb', 30),
-(3, 'Organic Eggs', 'Dairy', 'dozen', 120),
-(3, 'Wild Salmon', 'Meats & Seafood', 'lb', 25),
+(3, 'Organic Chicken Breast', 'Meats & Seafood', 'lb', NULL, 30),
+(3, 'Organic Eggs', 'Dairy', 'dozen', NULL, 120),
+(3, 'Wild Salmon', 'Meats & Seafood', 'lb', NULL, 25),
 -- Dairy
-(3, 'Organic Milk', 'Dairy', 'gallon', 80),
-(3, 'Organic Butter', 'Dairy', 'lb', 60),
-(3, 'Almond Milk', 'Dairy', 'carton', 70),
+(3, 'Organic Milk', 'Dairy', 'gallon', NULL, 80),
+(3, 'Organic Butter', 'Dairy', 'lb', NULL, 60),
+(3, 'Almond Milk', 'Dairy', 'carton', NULL, 70),
 -- Bakery & Pantry Staples  
-(3, 'Organic Flour', 'Bakery', 'lb', 75),
-(3, 'Coconut Sugar', 'Bakery', 'lb', 55),
-(3, 'Sea Salt', 'Pantry Staples', 'oz', 150),
-(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'bottle', 65),
-(3, 'Organic Quinoa', 'Pantry Staples', 'lb', 80),
-(3, 'Brown Rice', 'Pantry Staples', 'lb', 90);
+(3, 'Organic Flour', 'Bakery', 'lb', NULL, 75),
+(3, 'Coconut Sugar', 'Bakery', 'lb', NULL, 55),
+(3, 'Sea Salt', 'Pantry Staples', 'oz', NULL, 150),
+(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'bottle', NULL, 65),
+(3, 'Organic Quinoa', 'Pantry Staples', 'lb', NULL, 80),
+(3, 'Brown Rice', 'Pantry Staples', 'lb', NULL, 90);
 
 -- Insert pantry items for users
 INSERT INTO Pantry (user_id, item_id, quantity) VALUES
@@ -266,8 +266,8 @@ INSERT INTO Pantry (user_id, item_id, quantity) VALUES
 (7, 18, 1);  -- Butter
 
 -- Insert recipes
-INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VALUES
-(6, 'Classic Spaghetti Carbonara', TRUE, 
+INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rating) VALUES
+(6, 'Classic Spaghetti Carbonara', NULL, TRUE, 
 '1. Cook spaghetti according to package directions (10 minutes)
 2. While pasta cooks, dice bacon and cook until crispy (8 minutes)
 3. Beat eggs with Parmesan cheese in a bowl
@@ -278,7 +278,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 8. Season with black pepper and serve immediately',
 'Step 1: 10 minutes; Step 2: 8 minutes; Step 6: 2 minutes', 4.5),
 
-(6, 'Chicken Stir Fry', TRUE,
+(6, 'Chicken Stir Fry', NULL, TRUE,
 '1. Cut chicken into bite-sized pieces
 2. Heat oil in wok over high heat (2 minutes)
 3. Cook chicken until golden (6 minutes)
@@ -287,7 +287,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 6. Serve over rice',
 'Step 2: 2 minutes; Step 3: 6 minutes; Step 4: 5 minutes; Step 5: 2 minutes', 4.2),
 
-(4, 'Tomato Basil Pasta', TRUE,
+(4, 'Tomato Basil Pasta', NULL, TRUE,
 '1. Cook pasta according to package (10 minutes)
 2. Sauté garlic in olive oil (2 minutes)
 3. Add crushed tomatoes and simmer (15 minutes)
@@ -295,7 +295,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 5. Toss with cooked pasta and serve',
 'Step 1: 10 minutes; Step 2: 2 minutes; Step 3: 15 minutes; Step 4: 2 minutes', 4.7),
 
-(5, 'Garlic Butter Shrimp', TRUE,
+(5, 'Garlic Butter Shrimp', NULL, TRUE,
 '1. Peel and devein shrimp
 2. Melt butter in pan (2 minutes)
 3. Add minced garlic (1 minute)
@@ -304,7 +304,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 6. Garnish with parsley and serve',
 'Step 2: 2 minutes; Step 3: 1 minute; Step 4: 4-5 minutes', 4.8),
 
-(7, 'Chocolate Chip Cookies', TRUE,
+(7, 'Chocolate Chip Cookies', NULL, TRUE,
 '1. Preheat oven to 375°F (10 minutes)
 2. Cream butter and sugars (3 minutes)
 3. Beat in eggs and vanilla (2 minutes)
@@ -315,7 +315,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 8. Cool on wire rack (15 minutes)',
 'Step 1: 10 minutes; Step 2: 3 minutes; Step 3: 2 minutes; Step 4: 2 minutes; Step 5: 1 minute; Step 7: 10-12 minutes; Step 8: 15 minutes', 4.9),
 
-(4, 'Simple Scrambled Eggs', FALSE,
+(4, 'Simple Scrambled Eggs', NULL, FALSE,
 '1. Beat eggs with milk and salt (1 minute)
 2. Heat butter in pan over medium heat (1 minute)
 3. Pour in eggs and let sit (30 seconds)
@@ -324,7 +324,7 @@ INSERT INTO Recipes (user_id, name, is_public, instructions, timers, rating) VAL
 6. Season and serve immediately',
 'Step 1: 1 minute; Step 2: 1 minute; Step 3: 30 seconds; Step 4: 3-4 minutes', 4.0),
 
-(6, 'Beef Tacos', TRUE,
+(6, 'Beef Tacos', NULL, TRUE,
 '1. Brown ground beef in skillet (8 minutes)
 2. Add taco seasoning and water (5 minutes)
 3. Simmer until thickened (5 minutes)

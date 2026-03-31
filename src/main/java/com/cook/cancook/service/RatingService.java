@@ -6,12 +6,16 @@ import com.cook.cancook.model.RatingModel;
 import com.cook.cancook.model.RecipesModel;
 import com.cook.cancook.repository.RatingRepository;
 import com.cook.cancook.repository.RecipesRepository;
+import com.cook.cancook.repository.UserReposity;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @Transactional
@@ -25,6 +29,9 @@ public class RatingService {
 
   @Autowired
   private RecipesRepository recipesRepository;
+
+  @Autowired
+  private UserReposity userReposity;
 
   public List<RatingDto> getAllRatings() {
     List<RatingModel> ratings = ratingRepository.findAll();
@@ -50,6 +57,8 @@ public class RatingService {
   }
 
   public RatingDto submitRating(RatingDto dto) {
+    validateRatingRequest(dto);
+
     // Check if user already rated this recipe
     Optional<RatingModel> existingRating =
         ratingRepository.findByRecipeIdAndUserId(dto.getRecipeId(), dto.getUserId());
@@ -68,12 +77,73 @@ public class RatingService {
       }
     }
 
-    RatingModel savedRating = ratingRepository.save(rating);
+    RatingModel savedRating;
+    try {
+      savedRating = ratingRepository.save(rating);
+    } catch (DataIntegrityViolationException ex) {
+      // In case of race condition on unique (user_id, recipe_id), retry as update.
+      Optional<RatingModel> concurrentRating =
+          ratingRepository.findByRecipeIdAndUserId(dto.getRecipeId(), dto.getUserId());
+
+      if (concurrentRating.isPresent()) {
+        RatingModel updatedRating = concurrentRating.get();
+        updatedRating.setRating(dto.getRating());
+        updatedRating.setCreatedAt(LocalDateTime.now());
+        savedRating = ratingRepository.save(updatedRating);
+      } else {
+        throw new ResponseStatusException(
+            HttpStatus.BAD_REQUEST,
+            "Unable to save rating. Verify recipeId/userId and payload keys.",
+            ex);
+      }
+    }
 
     // Update recipe's average rating
     updateRecipeAverageRating(dto.getRecipeId());
 
     return ratingMapper.toDto(savedRating);
+  }
+
+  private void validateRatingRequest(RatingDto dto) {
+    if (dto == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Request body is required.");
+    }
+
+    if (dto.getRecipeId() == null) {
+      throw new ResponseStatusException(
+          HttpStatus.BAD_REQUEST,
+          "recipeId is required (or use recipe_id)."
+      );
+    }
+
+    if (dto.getUserId() == null) {
+      throw new ResponseStatusException(
+          HttpStatus.BAD_REQUEST,
+          "userId is required (or use user_id)."
+      );
+    }
+
+    if (dto.getRating() == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "rating is required.");
+    }
+
+    if (dto.getRating() < 0.0f || dto.getRating() > 5.0f) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "rating must be between 0 and 5.");
+    }
+
+    if (!recipesRepository.existsById(dto.getRecipeId())) {
+      throw new ResponseStatusException(
+          HttpStatus.BAD_REQUEST,
+          "recipeId does not exist: " + dto.getRecipeId()
+      );
+    }
+
+    if (!userReposity.existsById(dto.getUserId())) {
+      throw new ResponseStatusException(
+          HttpStatus.BAD_REQUEST,
+          "userId does not exist: " + dto.getUserId()
+      );
+    }
   }
 
   private void updateRecipeAverageRating(Integer recipeId) {
