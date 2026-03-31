@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 public class GroceryItemsDto {
 
   private Integer id;
-  
+
   @JsonProperty("store_id")
   private Integer storeId;
-  
+
   private String name;
   private String category;
   private String unit;

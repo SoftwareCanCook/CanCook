@@ -111,16 +111,12 @@ public class RatingService {
 
     if (dto.getRecipeId() == null) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "recipeId is required (or use recipe_id)."
-      );
+          HttpStatus.BAD_REQUEST, "recipeId is required (or use recipe_id).");
     }
 
     if (dto.getUserId() == null) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "userId is required (or use user_id)."
-      );
+          HttpStatus.BAD_REQUEST, "userId is required (or use user_id).");
     }
 
     if (dto.getRating() == null) {
@@ -133,16 +129,12 @@ public class RatingService {
 
     if (!recipesRepository.existsById(dto.getRecipeId())) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "recipeId does not exist: " + dto.getRecipeId()
-      );
+          HttpStatus.BAD_REQUEST, "recipeId does not exist: " + dto.getRecipeId());
     }
 
     if (!userReposity.existsById(dto.getUserId())) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "userId does not exist: " + dto.getUserId()
-      );
+          HttpStatus.BAD_REQUEST, "userId does not exist: " + dto.getUserId());
     }
   }
 

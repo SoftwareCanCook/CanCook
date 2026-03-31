@@ -132,7 +132,7 @@ public class AuthController {
       if (role == null || role.trim().isEmpty()) {
         role = "user"; // Default role
       }
-      
+
       // Grocery admins must be assigned to a store
       if ("groceryadmin".equals(role)) {
         if (request.getStore_id() == null) {
@@ -149,7 +149,7 @@ public class AuthController {
       user.setLoginAttempts(0);
       user.setStatus(1); // Active
       user.setRole(role);
-      
+
       // Set store ID if provided
       if (request.getStore_id() != null) {
         user.setStoreId(request.getStore_id());

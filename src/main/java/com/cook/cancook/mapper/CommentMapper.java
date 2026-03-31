@@ -19,6 +19,7 @@ public class CommentMapper {
     dto.setUserId(model.getUserId());
     dto.setCommentText(model.getCommentText());
     dto.setCreatedAt(model.getCreatedAt());
+    dto.setRating(model.getRating());
     return dto;
   }
 
@@ -32,6 +33,7 @@ public class CommentMapper {
     model.setUserId(dto.getUserId());
     model.setCommentText(dto.getCommentText());
     model.setCreatedAt(dto.getCreatedAt());
+    model.setRating(dto.getRating());
     return model;
   }
 

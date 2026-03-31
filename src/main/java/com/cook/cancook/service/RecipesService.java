@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -161,9 +161,7 @@ public class RecipesService {
   }
 
   private void persistRecipeIngredients(
-      Integer recipeId,
-      List<RecipeIngredientInputDto> ingredientInputs,
-      boolean replaceExisting) {
+      Integer recipeId, List<RecipeIngredientInputDto> ingredientInputs, boolean replaceExisting) {
     if (ingredientInputs == null) {
       return;
     }
@@ -187,12 +185,7 @@ public class RecipesService {
           : (input.getUnit() != null ? input.getUnit() : "unit");
 
       ingredientDtos.add(
-          new RecipeIngredientsDto(
-              null,
-              recipeId,
-              itemId,
-              quantityNeeded,
-              measurementUnit));
+          new RecipeIngredientsDto(null, recipeId, itemId, quantityNeeded, measurementUnit));
     }
 
     if (!ingredientDtos.isEmpty()) {
@@ -212,16 +205,14 @@ public class RecipesService {
     String ingredientName = input.getName() != null ? input.getName() : input.getIngredientName();
     if (ingredientName == null || ingredientName.trim().isEmpty()) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "Each ingredient must include itemId or name");
+          HttpStatus.BAD_REQUEST, "Each ingredient must include itemId or name");
     }
 
     List<GroceryItemsModel> matches =
         groceryItemsRepository.findByNameContainingIgnoreCase(ingredientName.trim());
     if (matches.isEmpty()) {
       throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST,
-          "Ingredient not found in GroceryItems: " + ingredientName);
+          HttpStatus.BAD_REQUEST, "Ingredient not found in GroceryItems: " + ingredientName);
     }
 
     String target = ingredientName.trim();
