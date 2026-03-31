@@ -14,13 +14,13 @@ public class UserDto {
   private String username;
   private String email;
   private String password;
-  
+
   @JsonProperty("login_attempts")
   private Integer loginAttempts;
-  
+
   private Integer status;
   private String role;
-  
+
   @JsonProperty("store_id")
   private Integer storeId;
 }

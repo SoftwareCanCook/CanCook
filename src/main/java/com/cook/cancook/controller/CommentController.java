@@ -23,7 +23,24 @@ public class CommentController {
   private CommentService commentService;
 
   @GetMapping
-  public ResponseEntity<List<CommentDto>> getAllComments() {
+  public ResponseEntity<List<CommentDto>> getAllComments(
+      @org.springframework.web.bind.annotation.RequestParam(required = false) Integer recipeId,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) String recipe_id,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) Integer userId,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) String user_id) {
+    // Handle both camelCase and snake_case query parameters
+    Integer effectiveRecipeId =
+        recipeId != null ? recipeId : (recipe_id != null ? Integer.parseInt(recipe_id) : null);
+    Integer effectiveUserId =
+        userId != null ? userId : (user_id != null ? Integer.parseInt(user_id) : null);
+
+    if (effectiveRecipeId != null) {
+      return ResponseEntity.ok(commentService.getCommentsByRecipeId(effectiveRecipeId));
+    }
+    if (effectiveUserId != null) {
+      return ResponseEntity.ok(commentService.getCommentsByUserId(effectiveUserId));
+    }
+
     List<CommentDto> comments = commentService.getAllComments();
     return ResponseEntity.ok(comments);
   }

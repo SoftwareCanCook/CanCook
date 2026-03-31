@@ -25,7 +25,24 @@ public class RatingController {
   private RatingService ratingService;
 
   @GetMapping
-  public ResponseEntity<List<RatingDto>> getAllRatings() {
+  public ResponseEntity<List<RatingDto>> getAllRatings(
+      @org.springframework.web.bind.annotation.RequestParam(required = false) Integer recipeId,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) String recipe_id,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) Integer userId,
+      @org.springframework.web.bind.annotation.RequestParam(required = false) String user_id) {
+    // Handle both camelCase and snake_case query parameters
+    Integer effectiveRecipeId =
+        recipeId != null ? recipeId : (recipe_id != null ? Integer.parseInt(recipe_id) : null);
+    Integer effectiveUserId =
+        userId != null ? userId : (user_id != null ? Integer.parseInt(user_id) : null);
+
+    if (effectiveRecipeId != null) {
+      return ResponseEntity.ok(ratingService.getRatingsByRecipeId(effectiveRecipeId));
+    }
+    if (effectiveUserId != null) {
+      return ResponseEntity.ok(ratingService.getRatingsByUserId(effectiveUserId));
+    }
+
     List<RatingDto> ratings = ratingService.getAllRatings();
     return ResponseEntity.ok(ratings);
   }
@@ -66,7 +83,8 @@ public class RatingController {
       return ResponseEntity.status(HttpStatus.CREATED).body(submittedRating);
     } catch (ResponseStatusException ex) {
       return ResponseEntity.status(ex.getStatusCode())
-          .body(Map.of("error", ex.getReason() != null ? ex.getReason() : "Rating request failed."));
+          .body(
+              Map.of("error", ex.getReason() != null ? ex.getReason() : "Rating request failed."));
     } catch (DataAccessException ex) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST)
           .body(Map.of("error", "Database error while saving rating."));

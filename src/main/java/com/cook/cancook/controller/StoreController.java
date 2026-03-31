@@ -30,8 +30,7 @@ public class StoreController {
 
   @GetMapping
   public ResponseEntity<List<StoreDto>> getAllStores(
-      @RequestParam(required = false) String city,
-      @RequestParam(required = false) String state) {
+      @RequestParam(required = false) String city, @RequestParam(required = false) String state) {
     List<StoreDto> stores;
 
     if (city != null && state != null) {
@@ -49,12 +48,18 @@ public class StoreController {
 
   @GetMapping("/{id}")
   public ResponseEntity<StoreDto> getStoreById(@PathVariable Integer id) {
-    return storeService.getStoreById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    return storeService
+        .getStoreById(id)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
   }
 
   @GetMapping("/name/{name}")
   public ResponseEntity<StoreDto> getStoreByName(@PathVariable String name) {
-    return storeService.getStoreByName(name).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    return storeService
+        .getStoreByName(name)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
   }
 
   @PostMapping
@@ -64,8 +69,7 @@ public class StoreController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<StoreDto> updateStore(
-      @PathVariable Integer id, @RequestBody StoreDto dto) {
+  public ResponseEntity<StoreDto> updateStore(@PathVariable Integer id, @RequestBody StoreDto dto) {
     return storeService
         .updateStore(id, dto)
         .map(ResponseEntity::ok)

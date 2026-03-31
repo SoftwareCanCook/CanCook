@@ -38,9 +38,9 @@ public class RecipesController {
   }
 
   @GetMapping("/{id}")
-    public ResponseEntity<RecipeDetailDto> getRecipeById(@PathVariable Integer id) {
+  public ResponseEntity<RecipeDetailDto> getRecipeById(@PathVariable Integer id) {
     return recipesService
-      .getRecipeDetailById(id)
+        .getRecipeDetailById(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
   }

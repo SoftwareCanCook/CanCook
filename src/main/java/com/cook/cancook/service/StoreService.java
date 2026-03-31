@@ -23,9 +23,7 @@ public class StoreService {
   private StoreMapper storeMapper;
 
   public List<StoreDto> getAllStores() {
-    return storeRepository.findAll().stream()
-        .map(storeMapper::toDto)
-        .collect(Collectors.toList());
+    return storeRepository.findAll().stream().map(storeMapper::toDto).collect(Collectors.toList());
   }
 
   public Optional<StoreDto> getStoreById(Integer id) {
@@ -64,31 +62,28 @@ public class StoreService {
   }
 
   public Optional<StoreDto> updateStore(Integer id, StoreDto dto) {
-    return storeRepository
-        .findById(id)
-        .map(
-            existing -> {
-              if (dto.getName() != null) {
-                existing.setName(dto.getName());
-              }
-              if (dto.getAddress() != null) {
-                existing.setAddress(dto.getAddress());
-              }
-              if (dto.getCity() != null) {
-                existing.setCity(dto.getCity());
-              }
-              if (dto.getState() != null) {
-                existing.setState(dto.getState());
-              }
-              if (dto.getZipCode() != null) {
-                existing.setZipCode(dto.getZipCode());
-              }
-              if (dto.getPhone() != null) {
-                existing.setPhone(dto.getPhone());
-              }
-              StoreModel updated = storeRepository.save(existing);
-              return storeMapper.toDto(updated);
-            });
+    return storeRepository.findById(id).map(existing -> {
+      if (dto.getName() != null) {
+        existing.setName(dto.getName());
+      }
+      if (dto.getAddress() != null) {
+        existing.setAddress(dto.getAddress());
+      }
+      if (dto.getCity() != null) {
+        existing.setCity(dto.getCity());
+      }
+      if (dto.getState() != null) {
+        existing.setState(dto.getState());
+      }
+      if (dto.getZipCode() != null) {
+        existing.setZipCode(dto.getZipCode());
+      }
+      if (dto.getPhone() != null) {
+        existing.setPhone(dto.getPhone());
+      }
+      StoreModel updated = storeRepository.save(existing);
+      return storeMapper.toDto(updated);
+    });
   }
 
   public boolean deleteStore(Integer id) {
