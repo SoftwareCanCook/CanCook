@@ -3,7 +3,9 @@ package com.cook.cancook.controller;
 import com.cook.cancook.dto.RatingDto;
 import com.cook.cancook.service.RatingService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/ratings")
@@ -57,9 +60,17 @@ public class RatingController {
   }
 
   @PostMapping
-  public ResponseEntity<RatingDto> submitRating(@RequestBody RatingDto dto) {
-    RatingDto submittedRating = ratingService.submitRating(dto);
-    return ResponseEntity.status(HttpStatus.CREATED).body(submittedRating);
+  public ResponseEntity<?> submitRating(@RequestBody RatingDto dto) {
+    try {
+      RatingDto submittedRating = ratingService.submitRating(dto);
+      return ResponseEntity.status(HttpStatus.CREATED).body(submittedRating);
+    } catch (ResponseStatusException ex) {
+      return ResponseEntity.status(ex.getStatusCode())
+          .body(Map.of("error", ex.getReason() != null ? ex.getReason() : "Rating request failed."));
+    } catch (DataAccessException ex) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body(Map.of("error", "Database error while saving rating."));
+    }
   }
 
   @DeleteMapping("/{id}")

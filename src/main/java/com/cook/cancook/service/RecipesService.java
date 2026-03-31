@@ -9,6 +9,7 @@ import com.cook.cancook.model.GroceryItemsModel;
 import com.cook.cancook.model.RecipesModel;
 import com.cook.cancook.repository.GroceryItemsRepository;
 import com.cook.cancook.repository.RecipesRepository;
+import com.cook.cancook.util.ImageUrlResolver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,21 +38,27 @@ public class RecipesService {
 
   public List<RecipesDto> getAllRecipes() {
     List<RecipesModel> recipes = recipesRepository.findAll();
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> getAllRecipes(String sortBy, String sortOrder) {
     Sort sort = createSort(sortBy, sortOrder);
     List<RecipesModel> recipes = recipesRepository.findAll(sort);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public Optional<RecipesDto> getRecipeById(Integer id) {
-    return recipesRepository.findById(id).map(recipesMapper::toDto);
+    return recipesRepository.findById(id).map(recipe -> {
+      applyDefaultImage(recipe);
+      return recipesMapper.toDto(recipe);
+    });
   }
 
   public Optional<RecipeDetailDto> getRecipeDetailById(Integer id) {
     return recipesRepository.findById(id).map(recipe -> {
+      applyDefaultImage(recipe);
       RecipesDto recipeDto = recipesMapper.toDto(recipe);
       List<RecipeIngredientsDto> ingredients =
           recipeIngredientsService.getIngredientsByRecipeId(id);
@@ -71,44 +78,52 @@ public class RecipesService {
 
   public List<RecipesDto> getRecipesByUserId(Integer userId) {
     List<RecipesModel> recipes = recipesRepository.findByUserId(userId);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> getPublicRecipes() {
     List<RecipesModel> recipes = recipesRepository.findByIsPublic(true);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> getPublicRecipes(String sortBy, String sortOrder) {
     Sort sort = createSort(sortBy, sortOrder);
     List<RecipesModel> recipes = recipesRepository.findByIsPublic(true, sort);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> searchRecipesByName(String name) {
     List<RecipesModel> recipes = recipesRepository.findByNameContainingIgnoreCase(name);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> searchRecipesByName(String name, String sortBy, String sortOrder) {
     Sort sort = createSort(sortBy, sortOrder);
     List<RecipesModel> recipes = recipesRepository.findByNameContainingIgnoreCase(name, sort);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> getRecipesByMinRating(Float minRating) {
     List<RecipesModel> recipes = recipesRepository.findByRatingGreaterThanEqual(minRating);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public List<RecipesDto> getRecipesByMinRating(Float minRating, String sortBy, String sortOrder) {
     Sort sort = createSort(sortBy, sortOrder);
     List<RecipesModel> recipes = recipesRepository.findByRatingGreaterThanEqual(minRating, sort);
+    applyDefaultImages(recipes);
     return recipesMapper.toDtoList(recipes);
   }
 
   public RecipesDto createRecipe(RecipesDto dto) {
     RecipesModel recipe = recipesMapper.toModel(dto);
+    recipe.setImage(ImageUrlResolver.resolveImageUrl(recipe.getImage(), recipe.getName()));
     RecipesModel savedRecipe = recipesRepository.save(recipe);
     persistRecipeIngredients(savedRecipe.getId(), dto.getIngredients(), false);
     return recipesMapper.toDto(savedRecipe);
@@ -137,6 +152,8 @@ public class RecipesService {
       if (dto.getRating() != null) {
         existingRecipe.setRating(dto.getRating());
       }
+      existingRecipe.setImage(
+          ImageUrlResolver.resolveImageUrl(existingRecipe.getImage(), existingRecipe.getName()));
       RecipesModel updatedRecipe = recipesRepository.save(existingRecipe);
       persistRecipeIngredients(updatedRecipe.getId(), dto.getIngredients(), true);
       return recipesMapper.toDto(updatedRecipe);
@@ -230,5 +247,18 @@ public class RecipesService {
     Sort.Direction direction =
         "desc".equalsIgnoreCase(sortOrder) ? Sort.Direction.DESC : Sort.Direction.ASC;
     return Sort.by(direction, sortBy);
+  }
+
+  private void applyDefaultImages(List<RecipesModel> recipes) {
+    for (RecipesModel recipe : recipes) {
+      applyDefaultImage(recipe);
+    }
+  }
+
+  private void applyDefaultImage(RecipesModel recipe) {
+    if (recipe == null) {
+      return;
+    }
+    recipe.setImage(ImageUrlResolver.resolveImageUrl(recipe.getImage(), recipe.getName()));
   }
 }
