@@ -123,84 +123,84 @@ INSERT INTO User (username, email, password, login_attempts, status, role, store
 -- Insert grocery items
 INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 -- Produce
-(1, 'Tomatoes', 'Produce', 'lb', https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF, 100),
-(1, 'Onions', 'Produce', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_TaCRUyCB-UmltWmo1YV8uGcgWiCV6QqCQ&s, 150),
-(1, 'Garlic', 'Produce', 'cloves', https://images.heb.com/is/image/HEBGrocery/000325168-1, 200),
-(1, 'Bell Peppers', 'Produce', 'each', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s, 80),
-(1, 'Carrots', 'Produce', 'lb', https://www.shutterstock.com/image-photo/carrot-isolated-on-white-background-600nw-795704785.jpg, 120),
-(1, 'Celery', 'Produce', 'bunch', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaIzCjSupd2CZqi13urRfIFKCgAZH0Gs2xg&s, 90),
-(1, 'Potatoes', 'Produce', 'lb', https://i5.walmartimages.com/seo/Russet-Baking-Potatoes-Whole-Fresh-Each_c638c006-a982-48f7-aa33-6d3a8dc2983c.8fd015937ebfdd46c8fcb6177d0d1b1d.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF, 200),
-(1, 'Lettuce', 'Produce', 'head', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQkym2BFCtpK1etDMciFrYw8gwx9W-bI_aBA&s, 60),
-(1, 'Spinach', 'Produce', 'bunch', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDr6TxSU65t995cB7IJqr5f-OW2rD9XBdLyA&s, 75),
-(1, 'Mushrooms', 'Produce', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB2476acvFPOH0uDKPUJGuejVC9XN8uhkoQ&s, 55),
+(1, 'Tomatoes', 'Produce', 'lb', `https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF`, 100),
+(1, 'Onions', 'Produce', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_TaCRUyCB-UmltWmo1YV8uGcgWiCV6QqCQ&s`, 150),
+(1, 'Garlic', 'Produce', 'cloves', `https://images.heb.com/is/image/HEBGrocery/000325168-1`, 200),
+(1, 'Bell Peppers', 'Produce', 'each', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s`, 80),
+(1, 'Carrots', 'Produce', 'lb', `https://www.shutterstock.com/image-photo/carrot-isolated-on-white-background-600nw-795704785.jpg`, 120),
+(1, 'Celery', 'Produce', 'bunch', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaIzCjSupd2CZqi13urRfIFKCgAZH0Gs2xg&s`, 90),
+(1, 'Potatoes', 'Produce', 'lb', `https://i5.walmartimages.com/seo/Russet-Baking-Potatoes-Whole-Fresh-Each_c638c006-a982-48f7-aa33-6d3a8dc2983c.8fd015937ebfdd46c8fcb6177d0d1b1d.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF`, 200),
+(1, 'Lettuce', 'Produce', 'head', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQkym2BFCtpK1etDMciFrYw8gwx9W-bI_aBA&s`, 60),
+(1, 'Spinach', 'Produce', 'bunch', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDr6TxSU65t995cB7IJqr5f-OW2rD9XBdLyA&s`, 75),
+(1, 'Mushrooms', 'Produce', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB2476acvFPOH0uDKPUJGuejVC9XN8uhkoQ&s`, 55),
 -- Meats & Seafood
-(1, 'Chicken Breast', 'Meats & Seafood', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s, 50),
-(1, 'Ground Beef', 'Meats & Seafood', 'lb', https://cdn11.bigcommerce.com/s-qieb3njg5z/images/stencil/1280x1280/products/626/2806/IMG_3660__58558.1741627909.jpg?c=1, 60),
-(1, 'Salmon Fillet', 'Meats & Seafood', 'lb', https://static.vecteezy.com/system/resources/previews/002/009/102/large_2x/fillet-of-salmon-on-white-background-photo.jpg, 30),
-(1, 'Shrimp', 'Meats & Seafood', 'lb', https://t4.ftcdn.net/jpg/07/53/24/43/360_F_753244363_DIFIDvCAYuldRkICfNQnG4n362mFrw5H.jpg, 40),
-(1, 'Eggs', 'Dairy', 'dozen', https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=, 200),
-(1, 'Bacon', 'Meats & Seafood', 'lb', https://img.freepik.com/premium-photo/raw-bacon-slices-isolated-white-background_188078-22815.jpg, 70),
+(1, 'Chicken Breast', 'Meats & Seafood', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s`, 50),
+(1, 'Ground Beef', 'Meats & Seafood', 'lb', `https://cdn11.bigcommerce.com/s-qieb3njg5z/images/stencil/1280x1280/products/626/2806/IMG_3660__58558.1741627909.jpg?c=1`, 60),
+(1, 'Salmon Fillet', 'Meats & Seafood', 'lb', `https://static.vecteezy.com/system/resources/previews/002/009/102/large_2x/fillet-of-salmon-on-white-background-photo.jpg`, 30),
+(1, 'Shrimp', 'Meats & Seafood', 'lb', `https://t4.ftcdn.net/jpg/07/53/24/43/360_F_753244363_DIFIDvCAYuldRkICfNQnG4n362mFrw5H.jpg`, 40),
+(1, 'Eggs', 'Dairy', 'dozen', `https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=`, 200),
+(1, 'Bacon', 'Meats & Seafood', 'lb', `https://img.freepik.com/premium-photo/raw-bacon-slices-isolated-white-background_188078-22815.jpg`, 70),
 -- Dairy
-(1, 'Milk', 'Dairy', 'gallon', https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=, 100),
-(1, 'Butter', 'Dairy', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s, 80),
-(1, 'Cheddar Cheese', 'Dairy', 'lb', https://t4.ftcdn.net/jpg/02/48/16/33/360_F_248163313_zlTapa5Hqt5Tnchqk2vesGyFt7wNE3j4.jpg, 65),
-(1, 'Parmesan Cheese', 'Dairy', 'oz', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosplBxgfucZMeZHzt0tP4JIAkgSKUxYxL7w&s, 50),
-(1, 'Mozzarella Cheese', 'Dairy', 'lb', https://t4.ftcdn.net/jpg/02/37/01/79/360_F_237017942_4IjGEOc1sZ6fetDIL4pB8PCOaImFQQnL.jpg, 55),
-(1, 'Heavy Cream', 'Dairy', 'pint', https://t4.ftcdn.net/jpg/06/67/35/73/360_F_667357328_PyRyFNhdtZIw7M5HV9RT7tE46hh6n2Nu.jpg, 45),
+(1, 'Milk', 'Dairy', 'gallon', `https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=`, 100),
+(1, 'Butter', 'Dairy', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s`, 80),
+(1, 'Cheddar Cheese', 'Dairy', 'lb', `https://t4.ftcdn.net/jpg/02/48/16/33/360_F_248163313_zlTapa5Hqt5Tnchqk2vesGyFt7wNE3j4.jpg`, 65),
+(1, 'Parmesan Cheese', 'Dairy', 'oz', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosplBxgfucZMeZHzt0tP4JIAkgSKUxYxL7w&s`, 50),
+(1, 'Mozzarella Cheese', 'Dairy', 'lb', `https://t4.ftcdn.net/jpg/02/37/01/79/360_F_237017942_4IjGEOc1sZ6fetDIL4pB8PCOaImFQQnL.jpg`, 55),
+(1, 'Heavy Cream', 'Dairy', 'pint', `https://t4.ftcdn.net/jpg/06/67/35/73/360_F_667357328_PyRyFNhdtZIw7M5HV9RT7tE46hh6n2Nu.jpg`, 45),
 -- Bakery & Pantry Staples
-(1, 'All-Purpose Flour', 'Bakery', 'lb', https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675, 100),
-(1, 'Sugar', 'Bakery', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCQ38eQDzyRQlv9tN6YrgF3w_T1GZS2busXw&s, 120),
-(1, 'Salt', 'Pantry Staples', 'oz', https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg, 200),
-(1, 'Black Pepper', 'Pantry Staples', 'oz', https://static.vecteezy.com/system/resources/previews/002/980/504/large_2x/black-peppers-on-the-white-background-free-photo.jpg, 150),
-(1, 'Olive Oil', 'Pantry Staples', 'bottle', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s, 90),
+(1, 'All-Purpose Flour', 'Bakery', 'lb', `https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675`, 100),
+(1, 'Sugar', 'Bakery', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCQ38eQDzyRQlv9tN6YrgF3w_T1GZS2busXw&s`, 120),
+(1, 'Salt', 'Pantry Staples', 'oz', `https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg`, 200),
+(1, 'Black Pepper', 'Pantry Staples', 'oz', `https://static.vecteezy.com/system/resources/previews/002/980/504/large_2x/black-peppers-on-the-white-background-free-photo.jpg`, 150),
+(1, 'Olive Oil', 'Pantry Staples', 'bottle', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s`, 90),
 -- Store 2 (Green Grocers Westside) - Items
 -- Produce
-(2, 'Tomatoes', 'Produce', 'lb', https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF, 85),
-(2, 'Onions', 'Produce', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_TaCRUyCB-UmltWmo1YV8uGcgWiCV6QqCQ&s, 130),
-(2, 'Garlic', 'Produce', 'cloves', https://images.heb.com/is/image/HEBGrocery/000325168-1, 180),
-(2, 'Bell Peppers', 'Produce', 'each', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s, 70),
-(2, 'Broccoli', 'Produce', 'bunch', https://thumbs.dreamstime.com/b/broccoli-isolated-white-background-close-up-view-green-raw-vegetable-131618524.jpg, 60),
-(2, 'Cucumbers', 'Produce', 'each', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH5y6_IM0itC8vYoDZTkUS4L2EHnhHuz68bw&s, 90),
-(2, 'Avocados', 'Produce', 'each', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkh9i2DeFqOH_6ejrIzEGUbfnMh1li-ejPTw&s, 50),
+(2, 'Tomatoes', 'Produce', 'lb', `https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF`, 85),
+(2, 'Onions', 'Produce', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_TaCRUyCB-UmltWmo1YV8uGcgWiCV6QqCQ&s`, 130),
+(2, 'Garlic', 'Produce', 'cloves', `https://images.heb.com/is/image/HEBGrocery/000325168-1`, 180),
+(2, 'Bell Peppers', 'Produce', 'each', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s`, 70),
+(2, 'Broccoli', 'Produce', 'bunch', `https://thumbs.dreamstime.com/b/broccoli-isolated-white-background-close-up-view-green-raw-vegetable-131618524.jpg`, 60),
+(2, 'Cucumbers', 'Produce', 'each', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH5y6_IM0itC8vYoDZTkUS4L2EHnhHuz68bw&s`, 90),
+(2, 'Avocados', 'Produce', 'each', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkh9i2DeFqOH_6ejrIzEGUbfnMh1li-ejPTw&s`, 50),
 -- Meats & Seafood
-(2, 'Chicken Breast', 'Meats & Seafood', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s, 45),
-(2, 'Pork Chops', 'Meats & Seafood', 'lb', https://media.istockphoto.com/id/1464224200/photo/raw-fresh-pork-chop-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_m5gZSMg__R5z5NwcSERS_daicaI8JnxG37C2xqrc5Y=, 35),
-(2, 'Eggs', 'Dairy', 'dozen', https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=, 180),
+(2, 'Chicken Breast', 'Meats & Seafood', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s`, 45),
+(2, 'Pork Chops', 'Meats & Seafood', 'lb', `https://media.istockphoto.com/id/1464224200/photo/raw-fresh-pork-chop-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_m5gZSMg__R5z5NwcSERS_daicaI8JnxG37C2xqrc5Y=`, 35),
+(2, 'Eggs', 'Dairy', 'dozen', `https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=`, 180),
 -- Dairy
-(2, 'Milk', 'Dairy', 'gallon', https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=, 95),
-(2, 'Butter', 'Dairy', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s, 70),
-(2, 'Greek Yogurt', 'Dairy', 'oz', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgEADVM68xiwVGHGx_Nnqu31KR28JYYTMnjQ&s, 60),
-(2, 'Cream Cheese', 'Dairy', 'oz', https://media.istockphoto.com/id/1400138219/photo/fresh-cream-cheese.jpg?s=612x612&w=0&k=20&c=hXS6xAYSmkz5Frae-AXej739arGh9UraeOl75GutouQ=, 55),
+(2, 'Milk', 'Dairy', 'gallon', `https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=`, 95),
+(2, 'Butter', 'Dairy', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s`, 70),
+(2, 'Greek Yogurt', 'Dairy', 'oz', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgEADVM68xiwVGHGx_Nnqu31KR28JYYTMnjQ&s`, 60),
+(2, 'Cream Cheese', 'Dairy', 'oz', `https://media.istockphoto.com/id/1400138219/photo/fresh-cream-cheese.jpg?s=612x612&w=0&k=20&c=hXS6xAYSmkz5Frae-AXej739arGh9UraeOl75GutouQ=`, 55),
 -- Bakery & Pantry Staples
-(2, 'All-Purpose Flour', 'Bakery', 'lb', https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675, 90),
-(2, 'Brown Sugar', 'Bakery', 'lb', https://t3.ftcdn.net/jpg/01/15/79/78/360_F_115797810_LCbJCUngEJiJvMv80HAABAYqWL6hu8I6.jpg, 85),
-(2, 'Salt', 'Pantry Staples', 'oz', https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg, 180),
-(2, 'Olive Oil', 'Pantry Staples', 'bottle', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s, 80),
-(2, 'Honey', 'Pantry Staples', 'jar', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFRp3dSIOrj0Gl71YPuOL_GFmteybj0XeJJQ&s, 45),
-(2, 'Spaghetti', 'Pantry Staples', 'lb', https://t4.ftcdn.net/jpg/17/38/75/51/360_F_1738755191_RaEiZNMpHjYQT1AaMKqDCWRAmjYV0FFx.jpg, 130),
-(2, 'Rice', 'Pantry Staples', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRMiVbBGRyvM-VQlvWhhWQx2nVMabG1v5Lg&s, 160),
-(2, 'Oatmeal', 'Pantry Staples', 'lb', https://thumbs.dreamstime.com/b/bowl-raw-oatmeal-white-background-150142005.jpg, 100),
+(2, 'All-Purpose Flour', 'Bakery', 'lb', `https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675`, 90),
+(2, 'Brown Sugar', 'Bakery', 'lb', `https://t3.ftcdn.net/jpg/01/15/79/78/360_F_115797810_LCbJCUngEJiJvMv80HAABAYqWL6hu8I6.jpg`, 85),
+(2, 'Salt', 'Pantry Staples', 'oz', `https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg`, 180),
+(2, 'Olive Oil', 'Pantry Staples', 'bottle', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s`, 80),
+(2, 'Honey', 'Pantry Staples', 'jar', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFRp3dSIOrj0Gl71YPuOL_GFmteybj0XeJJQ&s`, 45),
+(2, 'Spaghetti', 'Pantry Staples', 'lb', `https://t4.ftcdn.net/jpg/17/38/75/51/360_F_1738755191_RaEiZNMpHjYQT1AaMKqDCWRAmjYV0FFx.jpg`, 130),
+(2, 'Rice', 'Pantry Staples', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRMiVbBGRyvM-VQlvWhhWQx2nVMabG1v5Lg&s`, 160),
+(2, 'Oatmeal', 'Pantry Staples', 'lb', `https://thumbs.dreamstime.com/b/bowl-raw-oatmeal-white-background-150142005.jpg`, 100),
 -- Store 3 (Organic Plus) - Premium organic items
 -- Produce
-(3, 'Organic Tomatoes', 'Produce', 'lb', https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF, 60),
-(3, 'Organic Spinach', 'Produce', 'bunch', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDr6TxSU65t995cB7IJqr5f-OW2rD9XBdLyA&s, 55),
-(3, 'Organic Kale', 'Produce', 'bunch', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGycqflfbF_szPVC-Th3Z31GvVmlffcpRQKw&s, 45),
-(3, 'Organic Carrots', 'Produce', 'lb', https://www.shutterstock.com/image-photo/carrot-isolated-on-white-background-600nw-795704785.jpg, 70),
-(3, 'Organic Bell Peppers', 'Produce', 'each', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s, 50),
+(3, 'Organic Tomatoes', 'Produce', 'lb', `https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF`, 60),
+(3, 'Organic Spinach', 'Produce', 'bunch', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDr6TxSU65t995cB7IJqr5f-OW2rD9XBdLyA&s`, 55),
+(3, 'Organic Kale', 'Produce', 'bunch', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGycqflfbF_szPVC-Th3Z31GvVmlffcpRQKw&s`, 45),
+(3, 'Organic Carrots', 'Produce', 'lb', `https://www.shutterstock.com/image-photo/carrot-isolated-on-white-background-600nw-795704785.jpg`, 70),
+(3, 'Organic Bell Peppers', 'Produce', 'each', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhbEB6E8PHp7ErZ20JWF22iax136unK3iCw&s`, 50),
 -- Meats & Seafood
-(3, 'Organic Chicken Breast', 'Meats & Seafood', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s, 30),
-(3, 'Organic Eggs', 'Dairy', 'dozen', https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=, 120),
-(3, 'Wild Salmon', 'Meats & Seafood', 'lb', https://thumbs.dreamstime.com/b/salmon-white-background-7632375.jpg, 25),
+(3, 'Organic Chicken Breast', 'Meats & Seafood', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3c8TPpfOuf2MJlFaruD8RoPrR0YDA6r2yfA&s`, 30),
+(3, 'Organic Eggs', 'Dairy', 'dozen', `https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=`, 120),
+(3, 'Wild Salmon', 'Meats & Seafood', 'lb', `https://thumbs.dreamstime.com/b/salmon-white-background-7632375.jpg`, 25),
 -- Dairy
-(3, 'Organic Milk', 'Dairy', 'gallon', https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=, 80),
-(3, 'Organic Butter', 'Dairy', 'lb', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s, 60),
-(3, 'Almond Milk', 'Dairy', 'carton', https://t4.ftcdn.net/jpg/03/83/26/55/360_F_383265527_9gMPCt0FwTQXJruIBlDD6ilqL6tlqtVp.jpg, 70),
+(3, 'Organic Milk', 'Dairy', 'gallon', `https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=`, 80),
+(3, 'Organic Butter', 'Dairy', 'lb', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s`, 60),
+(3, 'Almond Milk', 'Dairy', 'carton', `https://t4.ftcdn.net/jpg/03/83/26/55/360_F_383265527_9gMPCt0FwTQXJruIBlDD6ilqL6tlqtVp.jpg`, 70),
 -- Bakery & Pantry Staples  
-(3, 'Organic Flour', 'Bakery', 'lb', https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675, 75),
-(3, 'Sea Salt', 'Pantry Staples', 'oz', https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg, 150),
-(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'bottle', https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s, 65),
-(3, 'Organic Quinoa', 'Pantry Staples', 'lb', https://static.vecteezy.com/system/resources/previews/022/844/835/large_2x/quinoa-seeds-in-wooden-bowl-isolated-on-white-background-close-up-quinoa-seeds-in-wooden-plate-isolated-on-white-background-quinoa-seeds-in-spoon-isolated-photo.jpg, 80),
-(3, 'Brown Rice', 'Pantry Staples', 'lb', https://img.freepik.com/premium-vector/red-brown-rice-isolated-white-background_858664-20476.jpg, 90);
+(3, 'Organic Flour', 'Bakery', 'lb', `https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675`, 75),
+(3, 'Sea Salt', 'Pantry Staples', 'oz', `https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg`, 150),
+(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'bottle', `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s`, 65),
+(3, 'Organic Quinoa', 'Pantry Staples', 'lb', `https://static.vecteezy.com/system/resources/previews/022/844/835/large_2x/quinoa-seeds-in-wooden-bowl-isolated-on-white-background-close-up-quinoa-seeds-in-wooden-plate-isolated-on-white-background-quinoa-seeds-in-spoon-isolated-photo.jpg`, 80),
+(3, 'Brown Rice', 'Pantry Staples', 'lb', `https://img.freepik.com/premium-vector/red-brown-rice-isolated-white-background_858664-20476.jpg`, 90);
 
 -- Insert pantry items for users
 INSERT INTO Pantry (user_id, item_id, quantity) VALUES
@@ -247,7 +247,7 @@ INSERT INTO Pantry (user_id, item_id, quantity) VALUES
 
 -- Insert recipes
 INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rating) VALUES
-(6, 'Classic Spaghetti Carbonara', https://www.budgetbytes.com/wp-content/uploads/2016/05/Spaghetti-Carbonara-Plated-500x500.jpg, TRUE, 
+(6, 'Classic Spaghetti Carbonara', `https://www.budgetbytes.com/wp-content/uploads/2016/05/Spaghetti-Carbonara-Plated-500x500.jpg`, TRUE, 
 '1. Cook spaghetti according to package directions (10 minutes)
 2. While pasta cooks, dice bacon and cook until crispy (8 minutes)
 3. Beat eggs with Parmesan cheese in a bowl
@@ -258,7 +258,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 8. Season with black pepper and serve immediately',
 'Step 1: 10 minutes; Step 2: 8 minutes; Step 6: 2 minutes', 4.5),
 
-(6, 'Chicken Stir Fry', https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/05/Chicken-Stir-Fry-main.jpg, TRUE,
+(6, 'Chicken Stir Fry', `https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/05/Chicken-Stir-Fry-main.jpg`, TRUE,
 '1. Cut chicken into bite-sized pieces
 2. Heat oil in wok over high heat (2 minutes)
 3. Cook chicken until golden (6 minutes)
@@ -267,7 +267,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 6. Serve over rice',
 'Step 2: 2 minutes; Step 3: 6 minutes; Step 4: 5 minutes; Step 5: 2 minutes', 4.2),
 
-(4, 'Tomato Basil Pasta', https://www.spoonfulofflavor.com/wp-content/uploads/2023/10/tomato-basil-pasta-recipe.jpg, TRUE,
+(4, 'Tomato Basil Pasta', `https://www.spoonfulofflavor.com/wp-content/uploads/2023/10/tomato-basil-pasta-recipe.jpg`, TRUE,
 '1. Cook pasta according to package (10 minutes)
 2. Sauté garlic in olive oil (2 minutes)
 3. Add crushed tomatoes and simmer (15 minutes)
@@ -275,7 +275,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 5. Toss with cooked pasta and serve',
 'Step 1: 10 minutes; Step 2: 2 minutes; Step 3: 15 minutes; Step 4: 2 minutes', 4.7),
 
-(5, 'Garlic Butter Shrimp', https://www.pantsdownapronson.com/wp-content/uploads/garlic-butter-shrimp.jpg, TRUE,
+(5, 'Garlic Butter Shrimp', `https://www.pantsdownapronson.com/wp-content/uploads/garlic-butter-shrimp.jpg`, TRUE,
 '1. Peel and devein shrimp
 2. Melt butter in pan (2 minutes)
 3. Add minced garlic (1 minute)
@@ -284,7 +284,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 6. Garnish with parsley and serve',
 'Step 2: 2 minutes; Step 3: 1 minute; Step 4: 4-5 minutes', 4.8),
 
-(7, 'Chocolate Chip Cookies', https://images.aws.nestle.recipes/resized/5b069c3ed2feea79377014f6766fcd49_Original_NTH_Chocolate_Chip_Cookie_448_448.jpg, TRUE,
+(7, 'Chocolate Chip Cookies', `https://images.aws.nestle.recipes/resized/5b069c3ed2feea79377014f6766fcd49_Original_NTH_Chocolate_Chip_Cookie_448_448.jpg`, TRUE,
 '1. Preheat oven to 375°F (10 minutes)
 2. Cream butter and sugars (3 minutes)
 3. Beat in eggs and vanilla (2 minutes)
@@ -295,7 +295,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 8. Cool on wire rack (15 minutes)',
 'Step 1: 10 minutes; Step 2: 3 minutes; Step 3: 2 minutes; Step 4: 2 minutes; Step 5: 1 minute; Step 7: 10-12 minutes; Step 8: 15 minutes', 4.9),
 
-(4, 'Simple Scrambled Eggs', https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2025/03/Scrambled-Eggs-main.jpg, FALSE,
+(4, 'Simple Scrambled Eggs', `https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2025/03/Scrambled-Eggs-main.jpg`, FALSE,
 '1. Beat eggs with milk and salt (1 minute)
 2. Heat butter in pan over medium heat (1 minute)
 3. Pour in eggs and let sit (30 seconds)
@@ -304,7 +304,7 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 6. Season and serve immediately',
 'Step 1: 1 minute; Step 2: 1 minute; Step 3: 30 seconds; Step 4: 3-4 minutes', 4.0),
 
-(6, 'Beef Tacos', https://loveandgoodstuff.com/wp-content/uploads/2020/08/classic-ground-beef-tacos-1200x1200.jpg, TRUE,
+(6, 'Beef Tacos', `https://loveandgoodstuff.com/wp-content/uploads/2020/08/classic-ground-beef-tacos-1200x1200.jpg`, TRUE,
 '1. Brown ground beef in skillet (8 minutes)
 2. Add taco seasoning and water (5 minutes)
 3. Simmer until thickened (5 minutes)
