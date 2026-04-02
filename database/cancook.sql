@@ -130,7 +130,7 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (1, 'Carrots', 'Produce', 'lb', 'https://www.shutterstock.com/image-photo/carrot-isolated-on-white-background-600nw-795704785.jpg', 120),
 (1, 'Celery', 'Produce', 'bunch', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThaIzCjSupd2CZqi13urRfIFKCgAZH0Gs2xg&s', 90),
 (1, 'Potatoes', 'Produce', 'lb', 'https://i5.walmartimages.com/seo/Russet-Baking-Potatoes-Whole-Fresh-Each_c638c006-a982-48f7-aa33-6d3a8dc2983c.8fd015937ebfdd46c8fcb6177d0d1b1d.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF', 200),
-(1, 'Lettuce', 'Produce', 'head', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQkym2BFCtpK1etDMciFrYw8gwx9W-bI_aBA&s', 60),
+(1, 'Lettuce', 'Produce', 'cup', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQkym2BFCtpK1etDMciFrYw8gwx9W-bI_aBA&s', 60),
 (1, 'Spinach', 'Produce', 'bunch', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDr6TxSU65t995cB7IJqr5f-OW2rD9XBdLyA&s', 75),
 (1, 'Mushrooms', 'Produce', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB2476acvFPOH0uDKPUJGuejVC9XN8uhkoQ&s', 55),
 -- Meats & Seafood
@@ -141,9 +141,9 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (1, 'Eggs', 'Dairy', 'dozen', 'https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=', 200),
 (1, 'Bacon', 'Meats & Seafood', 'lb', 'https://img.freepik.com/premium-photo/raw-bacon-slices-isolated-white-background_188078-22815.jpg', 70),
 -- Dairy
-(1, 'Milk', 'Dairy', 'gallon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 100),
+(1, 'Milk', 'Dairy', 'tablespoon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 100),
 (1, 'Butter', 'Dairy', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s', 80),
-(1, 'Cheddar Cheese', 'Dairy', 'lb', 'https://t4.ftcdn.net/jpg/02/48/16/33/360_F_248163313_zlTapa5Hqt5Tnchqk2vesGyFt7wNE3j4.jpg', 65),
+(1, 'Cheddar Cheese', 'Dairy', 'cup', 'https://t4.ftcdn.net/jpg/02/48/16/33/360_F_248163313_zlTapa5Hqt5Tnchqk2vesGyFt7wNE3j4.jpg', 65),
 (1, 'Parmesan Cheese', 'Dairy', 'oz', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosplBxgfucZMeZHzt0tP4JIAkgSKUxYxL7w&s', 50),
 (1, 'Mozzarella Cheese', 'Dairy', 'lb', 'https://t4.ftcdn.net/jpg/02/37/01/79/360_F_237017942_4IjGEOc1sZ6fetDIL4pB8PCOaImFQQnL.jpg', 55),
 (1, 'Heavy Cream', 'Dairy', 'pint', 'https://t4.ftcdn.net/jpg/06/67/35/73/360_F_667357328_PyRyFNhdtZIw7M5HV9RT7tE46hh6n2Nu.jpg', 45),
@@ -152,7 +152,7 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (1, 'Sugar', 'Bakery', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCQ38eQDzyRQlv9tN6YrgF3w_T1GZS2busXw&s', 120),
 (1, 'Salt', 'Pantry Staples', 'oz', 'https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg', 200),
 (1, 'Black Pepper', 'Pantry Staples', 'oz', 'https://static.vecteezy.com/system/resources/previews/002/980/504/large_2x/black-peppers-on-the-white-background-free-photo.jpg', 150),
-(1, 'Olive Oil', 'Pantry Staples', 'bottle', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 90),
+(1, 'Olive Oil', 'Pantry Staples', 'tablespoon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 90),
 -- Store 2 (Green Grocers Westside) - Items
 -- Produce
 (2, 'Tomatoes', 'Produce', 'lb', 'https://i5.walmartimages.com/seo/Fresh-Slicing-Tomato-Each_87d9362e-14de-4d0d-ac8a-76e0f45036ee.cc24439f3db08493212df9f0d12f48dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF', 85),
@@ -167,7 +167,7 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (2, 'Pork Chops', 'Meats & Seafood', 'lb', 'https://media.istockphoto.com/id/1464224200/photo/raw-fresh-pork-chop-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_m5gZSMg__R5z5NwcSERS_daicaI8JnxG37C2xqrc5Y=', 35),
 (2, 'Eggs', 'Dairy', 'dozen', 'https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=', 180),
 -- Dairy
-(2, 'Milk', 'Dairy', 'gallon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 95),
+(2, 'Milk', 'Dairy', 'tablespoon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 95),
 (2, 'Butter', 'Dairy', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s', 70),
 (2, 'Greek Yogurt', 'Dairy', 'oz', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgEADVM68xiwVGHGx_Nnqu31KR28JYYTMnjQ&s', 60),
 (2, 'Cream Cheese', 'Dairy', 'oz', 'https://media.istockphoto.com/id/1400138219/photo/fresh-cream-cheese.jpg?s=612x612&w=0&k=20&c=hXS6xAYSmkz5Frae-AXej739arGh9UraeOl75GutouQ=', 55),
@@ -175,8 +175,8 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (2, 'All-Purpose Flour', 'Bakery', 'lb', 'https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675', 90),
 (2, 'Brown Sugar', 'Bakery', 'lb', 'https://t3.ftcdn.net/jpg/01/15/79/78/360_F_115797810_LCbJCUngEJiJvMv80HAABAYqWL6hu8I6.jpg', 85),
 (2, 'Salt', 'Pantry Staples', 'oz', 'https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg', 180),
-(2, 'Olive Oil', 'Pantry Staples', 'bottle', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 80),
-(2, 'Honey', 'Pantry Staples', 'jar', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFRp3dSIOrj0Gl71YPuOL_GFmteybj0XeJJQ&s', 45),
+(2, 'Olive Oil', 'Pantry Staples', 'tablespoon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 80),
+(2, 'Honey', 'Pantry Staples', 'tablespoon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFRp3dSIOrj0Gl71YPuOL_GFmteybj0XeJJQ&s', 45),
 (2, 'Spaghetti', 'Pantry Staples', 'lb', 'https://t4.ftcdn.net/jpg/17/38/75/51/360_F_1738755191_RaEiZNMpHjYQT1AaMKqDCWRAmjYV0FFx.jpg', 130),
 (2, 'Rice', 'Pantry Staples', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRMiVbBGRyvM-VQlvWhhWQx2nVMabG1v5Lg&s', 160),
 (2, 'Oatmeal', 'Pantry Staples', 'lb', 'https://thumbs.dreamstime.com/b/bowl-raw-oatmeal-white-background-150142005.jpg', 100),
@@ -192,13 +192,13 @@ INSERT INTO GroceryItems (store_id, name, category, unit, image, stock) VALUES
 (3, 'Organic Eggs', 'Dairy', 'dozen', 'https://media.istockphoto.com/id/1447419799/photo/one-chicken-egg-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=l9Muo1lMAnmq7ngrICvn0FSSlUgpTGuoLd6MW7WSdw8=', 120),
 (3, 'Wild Salmon', 'Meats & Seafood', 'lb', 'https://thumbs.dreamstime.com/b/salmon-white-background-7632375.jpg', 25),
 -- Dairy
-(3, 'Organic Milk', 'Dairy', 'gallon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 80),
-(3, 'Organic Butter', 'Dairy', 'lb', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s', 60),
-(3, 'Almond Milk', 'Dairy', 'carton', 'https://t4.ftcdn.net/jpg/03/83/26/55/360_F_383265527_9gMPCt0FwTQXJruIBlDD6ilqL6tlqtVp.jpg', 70),
+(3, 'Organic Milk', 'Dairy', 'tablespoon', 'https://media.istockphoto.com/id/484022736/photo/gallon-milk-bottle-with-red-cap-isolated-on-white.jpg?s=612x612&w=0&k=20&c=OKbtAyrLquL5tfHafJiDxuw_Cae6tLp8DKy4scCwUuM=', 80),
+(3, 'Organic Butter', 'Dairy', 'tablespoon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC8d5i14AozhRZyisQopv5qTyIGUD9cGvTA&s', 60),
+(3, 'Almond Milk', 'Dairy', 'tablespoon', 'https://t4.ftcdn.net/jpg/03/83/26/55/360_F_383265527_9gMPCt0FwTQXJruIBlDD6ilqL6tlqtVp.jpg', 70),
 -- Bakery & Pantry Staples  
 (3, 'Organic Flour', 'Bakery', 'lb', 'https://www.sunorganicfarm.com/cdn/shop/files/organic-whole-wheat-flour-8.jpg?v=1764983675', 75),
 (3, 'Sea Salt', 'Pantry Staples', 'oz', 'https://t3.ftcdn.net/jpg/02/14/08/44/360_F_214084425_SjvXMLNevveNuiVX66BXhlj1cEa8vmqD.jpg', 150),
-(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'bottle', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 65),
+(3, 'Extra Virgin Olive Oil', 'Pantry Staples', 'tablespoon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5vp9xUhmjTrEBR4sHHCjcF5_XPRByTAoiA&s', 65),
 (3, 'Organic Quinoa', 'Pantry Staples', 'lb', 'https://static.vecteezy.com/system/resources/previews/022/844/835/large_2x/quinoa-seeds-in-wooden-bowl-isolated-on-white-background-close-up-quinoa-seeds-in-wooden-plate-isolated-on-white-background-quinoa-seeds-in-spoon-isolated-photo.jpg', 80),
 (3, 'Brown Rice', 'Pantry Staples', 'lb', 'https://img.freepik.com/premium-vector/red-brown-rice-isolated-white-background_858664-20476.jpg', 90);
 
@@ -316,13 +316,13 @@ INSERT INTO Recipes (user_id, name, image, is_public, instructions, timers, rati
 -- Insert recipe ingredients
 INSERT INTO Recipe_Ingredients (recipe_id, item_id, quantity_needed, measurement_unit) VALUES
 -- Spaghetti Carbonara (recipe_id = 1)
-(1, 31, 1, 'pound'),
-(1, 16, 8, 'slices'),
+(1, 31, 1, 'lb'),
+(1, 16, 1, 'lb'),
 (1, 15, 4, 'whole'),
 (1, 20, 1, 'cup'),
 (1, 26, 1, 'tablespoon'),
 -- Chicken Stir Fry (recipe_id = 2)
-(2, 11, 1, 'pound'),
+(2, 11, 1, 'lb'),
 (2, 4, 2, 'whole'),
 (2, 2, 1, 'whole'),
 (2, 3, 3, 'cloves'),
@@ -330,7 +330,7 @@ INSERT INTO Recipe_Ingredients (recipe_id, item_id, quantity_needed, measurement
 (2, 28, 2, 'tablespoons'),
 (2, 33, 2, 'cups'),
 -- Tomato Basil Pasta (recipe_id = 3)
-(3, 32, 1, 'pound'),
+(3, 32, 1, 'bunch'),
 (3, 35, 1, 'can'),
 (3, 3, 4, 'cloves'),
 (3, 39, 1, 'cup'),
@@ -338,7 +338,7 @@ INSERT INTO Recipe_Ingredients (recipe_id, item_id, quantity_needed, measurement
 (3, 25, 1, 'teaspoon'),
 (3, 26, 1, 'teaspoon'),
 -- Garlic Butter Shrimp (recipe_id = 4)
-(4, 14, 1, 'pound'),
+(4, 14, 1, 'lb'),
 (4, 18, 4, 'tablespoons'),
 (4, 3, 6, 'cloves'),
 (4, 25, 1, 'teaspoon'),
@@ -355,7 +355,7 @@ INSERT INTO Recipe_Ingredients (recipe_id, item_id, quantity_needed, measurement
 (6, 18, 1, 'tablespoon'),
 (6, 25, 0.25, 'teaspoon'),
 -- Beef Tacos (recipe_id = 7)
-(7, 12, 1, 'pound'),
+(7, 12, 1, 'lb'),
 (7, 2, 1, 'whole'),
 (7, 1, 2, 'whole'),
 (7, 8, 2, 'cups'),
