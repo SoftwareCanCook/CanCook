@@ -18,6 +18,7 @@ CREATE TABLE Stores (
   state VARCHAR(50) NULL,
   zip_code VARCHAR(20) NULL,
   phone VARCHAR(20) NULL,
+  image_url VARCHAR(1000) NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -104,10 +105,11 @@ CREATE TABLE Ratings (
 );
 
 -- Insert stores
-INSERT INTO Stores (name, address, city, state, zip_code, phone) VALUES
-('Fresh Market Downtown', '123 Main Street', 'Springfield', 'IL', '62701', '(217) 555-0100'),
-('Green Grocers Westside', '456 Oak Avenue', 'Springfield', 'IL', '62702', '(217) 555-0200'),
-('Organic Plus', '789 Elm Street', 'Springfield', 'IL', '62703', '(217) 555-0300');
+INSERT INTO Stores (name, address, city, state, zip_code, phone, image_url) VALUES
+('Fresh Market Downtown', '123 Main Street', 'Springfield', 'IL', '62701', '(217) 555-0100', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR5L4WPa3XPRe17OzDssx9XqKIEXYKehKpWg&s'),
+('Green Grocers Westside', '456 Oak Avenue', 'Springfield', 'IL', '62702', '(217) 555-0200', 'https://t4.ftcdn.net/jpg/03/24/27/83/360_F_324278342_47nP45gMXifuj88i1dgVA8xyYBahgmUa.jpg'),
+('Organic Plus', '789 Elm Street', 'Springfield', 'IL', '62703', '(217) 555-0300', 'https://img.freepik.com/premium-vector/cartoon-icon-brown-bag-full-raw-potato-natural-healthy-food-organic-product-graphic-element-poster-farmers-market-colorful-flat-vector-illustration-isolated-white-background_223337-10833.jpg');
+
 
 -- Insert default admin accounts and test users
 -- Password for admin accounts is "admin123", regular users is "pass123"

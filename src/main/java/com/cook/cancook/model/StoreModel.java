@@ -40,6 +40,9 @@ public class StoreModel {
   @Column(length = 20)
   private String phone;
 
+  @Column(name = "image_url", length = 1000)
+  private String imageUrl;
+
   @Column(name = "created_at")
   private LocalDateTime createdAt;
 }

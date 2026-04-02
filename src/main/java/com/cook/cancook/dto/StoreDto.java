@@ -1,5 +1,6 @@
 package com.cook.cancook.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +18,9 @@ public class StoreDto {
   private String state;
   private String zipCode;
   private String phone;
+
+  @JsonProperty("image_url")
+  private String imageUrl;
+
   private LocalDateTime createdAt;
 }

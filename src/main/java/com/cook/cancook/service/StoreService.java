@@ -81,6 +81,9 @@ public class StoreService {
       if (dto.getPhone() != null) {
         existing.setPhone(dto.getPhone());
       }
+      if (dto.getImageUrl() != null) {
+        existing.setImageUrl(dto.getImageUrl());
+      }
       StoreModel updated = storeRepository.save(existing);
       return storeMapper.toDto(updated);
     });

@@ -20,6 +20,7 @@ public class StoreMapper {
     dto.setState(model.getState());
     dto.setZipCode(model.getZipCode());
     dto.setPhone(model.getPhone());
+    dto.setImageUrl(model.getImageUrl());
     dto.setCreatedAt(model.getCreatedAt());
 
     return dto;
@@ -38,6 +39,7 @@ public class StoreMapper {
     model.setState(dto.getState());
     model.setZipCode(dto.getZipCode());
     model.setPhone(dto.getPhone());
+    model.setImageUrl(dto.getImageUrl());
     model.setCreatedAt(dto.getCreatedAt());
 
     return model;

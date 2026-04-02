@@ -50,7 +50,7 @@ async function loadStores() {
                     const container = storeContainers[index];
                     container.querySelector('h2').textContent = store.name;
                     container.querySelector('p').textContent = `${store.address} | Phone: ${store.phone}`;
-                    container.querySelector('img').src = store.logoUrl || 'apple.jpg';
+                    container.querySelector('img').src = store.image_url || store.imageUrl || 'apple.jpg';
                     container.querySelector('a').href = `#store-${store.id}`;
                     container.querySelector('a').onclick = () => loadStoreItems(store.id);
                 }
