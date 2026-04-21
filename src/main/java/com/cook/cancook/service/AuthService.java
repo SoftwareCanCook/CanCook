@@ -23,7 +23,7 @@ public class AuthService {
   @Autowired
   private UserMapper userMapper;
 
-  private static final int MAX_LOGIN_ATTEMPTS = 5;
+  private static final int MAX_LOGIN_ATTEMPTS = 3;
 
   public LoginResponse login(LoginRequest request) {
     Optional<UserModel> userOptional = userRepository.findByUsername(request.getUsername());
@@ -40,19 +40,20 @@ public class AuthService {
           false, "Account is locked. Please contact administrator.", null, null);
     }
 
-    // Check if login attempts exceeded
-    if (user.getLoginAttempts() != null && user.getLoginAttempts() >= MAX_LOGIN_ATTEMPTS) {
-      user.setStatus(0); // Lock the account
-      userRepository.save(user);
-      return new LoginResponse(
-          false, "Account locked due to too many failed login attempts.", null, null);
-    }
-
     // Verify password
     if (!user.getPassword().equals(request.getPassword())) {
       // Increment login attempts
       int attempts = user.getLoginAttempts() != null ? user.getLoginAttempts() : 0;
       user.setLoginAttempts(attempts + 1);
+
+      // Lock the account as soon as the failed attempt limit is reached
+      if (user.getLoginAttempts() >= MAX_LOGIN_ATTEMPTS) {
+        user.setStatus(0); // Lock the account
+        userRepository.save(user);
+        return new LoginResponse(
+            false, "Account locked due to too many failed login attempts.", null, null);
+      }
+
       userRepository.save(user);
 
       int remainingAttempts = MAX_LOGIN_ATTEMPTS - user.getLoginAttempts();

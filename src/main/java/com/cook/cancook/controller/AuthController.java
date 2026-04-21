@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+  private static final int MAX_LOGIN_ATTEMPTS = 3;
+
   @Autowired
   private UserReposity userRepository;
 
@@ -56,7 +58,7 @@ public class AuthController {
         user.setLoginAttempts(attempts + 1);
 
         // Lock account if max attempts exceeded
-        if (user.getLoginAttempts() >= 5) {
+        if (user.getLoginAttempts() >= MAX_LOGIN_ATTEMPTS) {
           user.setStatus(0);
           userRepository.save(user);
           return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
